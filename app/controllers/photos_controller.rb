@@ -5,10 +5,18 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = Photo.new(photo_params)
+    @photo = Photo.new
   end
 
   def create
+    @photo = Photo.new(photo_params)
+    @photo.prep = @prep
+    if @photo.save
+      flash[:success] = "Photo created!"
+      redirect_to prep_path(@photo.prep)
+    else
+      render :new
+    end
   end
 
   def photo_params

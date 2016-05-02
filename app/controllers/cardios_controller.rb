@@ -10,6 +10,14 @@ class CardiosController < ApplicationController
     end
 
     def create
+      @cardio = Cardio.new(cardio_params)
+      @cardio.prep = @prep
+      if @cardio.save
+        flash[:success] = "Cardio added!"
+        redirect_to prep_path(@cardio.prep)
+      else
+        render :new
+      end
     end
 
     private
