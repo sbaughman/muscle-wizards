@@ -12,7 +12,7 @@ class PrepsController < ApplicationController
     @prep = Prep.new(prep_params)
     if @prep.save
       flash[:success] = "New Contest Prep started. Good luck!"
-      redirect_to prep_path
+      redirect_to prep_path(@prep)
     else
       render :new
     end
