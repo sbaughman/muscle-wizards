@@ -1,1 +1,8 @@
-  
+<h1>Cardio History:</h1>
+
+<%= link_to "Add new cardio", new_prep_cardio_path(@prep) %>
+<ul>
+  <%= render @cardios %>
+</ul>
+
+<%= link_to "Back to Prep Home", prep_path(@prep) %>
