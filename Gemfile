@@ -36,7 +36,8 @@ gem 'bootstrap-kaminari-views'
 gem 'simple_form'
 gem 'faker'
 gem 'figaro'
-
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
 

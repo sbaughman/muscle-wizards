@@ -1,4 +1,5 @@
 class ContestsController < ApplicationController
+  before_action :set_prep
 
   def index
     @prep = Prep.find(params[:prep_id])

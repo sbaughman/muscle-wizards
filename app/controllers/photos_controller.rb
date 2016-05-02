@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :set_prep
 
   def index
     @photos = @prep.photos.order(created_at: :desc)
