@@ -23,6 +23,6 @@ class CardiosController < ApplicationController
     private
 
     def cardio_params
-      params.require(:cardio).permit(:duration, :type, :style)
+      params.require(:cardio).permit(:duration, :activity, :style)
     end
 end
