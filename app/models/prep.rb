@@ -1,3 +1,3 @@
 class Prep < ApplicationRecord
-  belongs_to :athlete
+  validates :title, presence: true
 end
