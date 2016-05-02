@@ -1,1 +1,8 @@
-  
+<h1>Upcoming Contests:</h1>
+
+<%= link_to "Add new contest", new_prep_contest_path(@prep) %>
+<ul>
+  <%= render @contests %>
+</ul>
+
+<%= link_to "Back to Prep Home", prep_path(@prep) %>
