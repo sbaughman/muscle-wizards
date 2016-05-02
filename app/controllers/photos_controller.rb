@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
 
   def index
-    @prep = Prep.find(params[:prep_id])
     @photos = @prep.photos.order(created_at: :desc)
   end
 

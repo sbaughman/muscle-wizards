@@ -1,7 +1,7 @@
 class CardiosController < ApplicationController
+  before_action :set_prep
 
     def index
-      @prep = Prep.find(params[:prep_id])
       @cardios = @prep.cardios.order(created_at: :desc)
     end
 
