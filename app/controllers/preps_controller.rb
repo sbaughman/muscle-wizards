@@ -1,0 +1,2 @@
+class PrepsController < ApplicationController
+end
