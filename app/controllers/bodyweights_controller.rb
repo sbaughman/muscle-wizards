@@ -1,7 +1,8 @@
 class BodyweightsController < ApplicationController
+  before_action :set_prep
 
   def index
-    @weights = Bodyweight.all(created_at: :desc)
+    @weights = @prep.bodyweights.order(created_at: :desc)
   end
 
   def new
@@ -23,4 +24,5 @@ class BodyweightsController < ApplicationController
   def weight_params
     params.require(:bodyweight).permit(:weight)
   end
+
 end

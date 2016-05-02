@@ -1,0 +1,8 @@
+<h1>Bodyweight History:</h1>
+
+<%= link_to "Add a new weigh-in", new_prep_bodyweight_path(@prep) %>
+<ul>
+  <%= render @weights %>
+</ul>
+
+<%= link_to "Back to Prep Home", prep_path(@prep) %>

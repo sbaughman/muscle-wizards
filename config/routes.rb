@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :contests
-  resources :photos
-  resources :cardios
-  resources :macros
-  resources :bodyweights
-  resources :preps
+  resources :preps do
+    resources :contests
+    resources :photos
+    resources :cardios
+    resources :macros
+    resources :bodyweights
+  end
 
   root 'preps#index'
 
