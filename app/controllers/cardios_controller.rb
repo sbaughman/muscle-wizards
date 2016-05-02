@@ -6,7 +6,7 @@ class CardiosController < ApplicationController
     end
 
     def new
-      @cardio = Cardio.new(cardio_params)
+      @cardio = Cardio.new
     end
 
     def create
