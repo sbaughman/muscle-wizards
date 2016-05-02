@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore simplecov directory and reports
+/coverage
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -18,3 +21,4 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/secrets.yml

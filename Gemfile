@@ -36,7 +36,8 @@ gem 'bootstrap-kaminari-views'
 gem 'simple_form'
 gem 'faker'
 gem 'figaro'
-
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'rails_12factor', group: :production
 gem 'simplecov', :require => false, :group => :test
 
@@ -47,6 +48,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec-rails', '~> 3.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
