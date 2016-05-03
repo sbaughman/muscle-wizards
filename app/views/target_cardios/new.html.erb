@@ -1,7 +1,7 @@
 <div class="row">
   <div class="medium-8 medium-centered column">
-    <h2>New Cardio Record:</h2>
-    <%= simple_form_for [@prep, @cardio] do |f| %>
+    <h2>New Target Cardio:</h2>
+    <%= simple_form_for [@prep, @target_cardio] do |f| %>
       <%= f.input :duration, input_html: { min: '0' } %>
       <%= f.input :activity %>
       <%= f.input :style, placeholder: 'eg. HIIT or LISS' %>

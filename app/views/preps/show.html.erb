@@ -1,14 +1,17 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h2 class="text-center">12 Weeks Out from <%= @prep.contests.first.title %></h2>
+    <h2 class="text-center"><%= pluralize(@time, @interval) %> from <%= @prep.contests.first.title if @prep.contests.first %></h2>
   </div>
 </div>
 <div class="row">
   <div class="medium-6 columns text-center">
     <h4>Weight</h4>
-    <h4><%= @prep.bodyweights.last.display_weight %></h4>
-    <h6>Start Weight: <%= @prep.bodyweights.first.display_weight %></h6>
-    <h6><%= time_ago_in_words(@prep.bodyweights.first.created_at) %> ago</h6>
+    <% if @prep.bodyweights.first %>
+      <%= render partial: 'weight', locals: { weight: @prep.bodyweights.last, start_weight: @prep.bodyweights.first } %>
+    <% else %>
+        <h6>No weigh-ins recorded yet</h6>
+        <%= link_to "Log starting weight", new_prep_bodyweight_path(@prep) %>
+    <% end %>
   </div>
   <div class="medium-6 columns text-center">
     <h4>Athlete</h4>
@@ -22,6 +25,26 @@
 <div class="row">
   <div class="medium-6 columns text-center">
     <h4>Macros</h4>
+    <% if @prep.target_macros.first %>
+      <%= render partial: 'macros', locals: { macros: @prep.target_macros.last } %>
+    <% else %>
+      <h6>No target macros set yet</h6>
+      <%= link_to "Set macro goals", new_prep_target_macro_path(@prep) %>
+    <% end %>
+  </div>
+  <div class="medium-6 columns text-center">
+    <h4>Cardio</h4>
+    <% if @prep.target_cardios.first %>
+      <%= render partial: 'cardio', locals: { cardio: @prep.target_cardios.last } %>
+    <% else %>
+      <h6>No cardio set yet</h6>
+      <%= link_to "Set cardio goal", new_prep_target_cardio_path(@prep) %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns text-center">
+    <h2>Latest Progress Photos</h2>
 
   </div>
 </div>

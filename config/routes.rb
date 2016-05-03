@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :contests
     resources :photos
     resources :cardios
+    resources :target_cardios
     resources :macros
+    resources :target_macros
     resources :bodyweights
   end
 

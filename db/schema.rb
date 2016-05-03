@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160503181049) do
+=======
 ActiveRecord::Schema.define(version: 20160503184222) do
+>>>>>>> 2d88b46f0f24fa0499bce786141031fc18f11e53
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +82,27 @@ ActiveRecord::Schema.define(version: 20160503184222) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+  create_table "target_cardios", force: :cascade do |t|
+    t.integer  "duration"
+    t.string   "activity"
+    t.string   "style"
+    t.integer  "prep_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prep_id"], name: "index_target_cardios_on_prep_id", using: :btree
+  end
+
+  create_table "target_macros", force: :cascade do |t|
+    t.integer  "protein"
+    t.integer  "carbs"
+    t.integer  "fat"
+    t.integer  "fiber"
+    t.integer  "prep_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prep_id"], name: "index_target_macros_on_prep_id", using: :btree
+=======
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
@@ -109,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160503184222) do
     t.integer  "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+>>>>>>> 2d88b46f0f24fa0499bce786141031fc18f11e53
   end
 
   add_foreign_key "bodyweights", "preps"
@@ -116,4 +142,6 @@ ActiveRecord::Schema.define(version: 20160503184222) do
   add_foreign_key "contests", "preps"
   add_foreign_key "macros", "preps"
   add_foreign_key "photos", "preps"
+  add_foreign_key "target_cardios", "preps"
+  add_foreign_key "target_macros", "preps"
 end

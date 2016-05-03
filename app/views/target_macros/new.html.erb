@@ -1,7 +1,7 @@
 <div class="row">
   <div class="medium-8 medium-center column">
-    <h2>Enter your macros:</h2>
-    <%= simple_form_for [@prep, @macro] do |f| %>
+    <h2>New Target Macros:</h2>
+    <%= simple_form_for [@prep, @target_macro] do |f| %>
       <%= f.input :protein, input_html: { min: '0' } %>
       <%= f.input :carbs, input_html: { min: '0' } %>
       <%= f.input :fat, input_html: { min: '0' } %>
