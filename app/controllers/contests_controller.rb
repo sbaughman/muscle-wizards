@@ -12,7 +12,7 @@ class ContestsController < ApplicationController
   def create
     @contest = Contest.new(contest_params)
     @contest.prep = @prep
-    if @contest.save!
+    if @contest.save
       flash[:success] = "Contest created!"
       redirect_to prep_path(@contest.prep)
     else

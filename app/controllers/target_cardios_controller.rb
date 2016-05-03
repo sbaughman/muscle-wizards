@@ -22,7 +22,7 @@ class TargetCardiosController < ApplicationController
 
     private
 
-    def cardio_params
+    def target_cardio_params
       params.require(:target_cardio).permit(:duration, :activity, :style)
     end
 end
