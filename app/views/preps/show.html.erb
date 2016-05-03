@@ -9,6 +9,7 @@
     <h4><%= @prep.bodyweights.last.display_weight %></h4>
     <h6>Start Weight: <%= @prep.bodyweights.first.display_weight %></h6>
     <h6><%= time_ago_in_words(@prep.bodyweights.first.created_at) %> ago</h6>
+    <%= link_to "Log new weight", new_prep_bodyweight_path(@prep) %>
   </div>
   <div class="medium-6 columns text-center">
     <h4>Athlete</h4>
@@ -22,6 +23,33 @@
 <div class="row">
   <div class="medium-6 columns text-center">
     <h4>Macros</h4>
+    <ul class="no-bullet">
+      <li><%= @prep.target_macros.last.protein %>g Protein</li>
+      <li><%= @prep.target_macros.last.carbs %>g Carbs</li>
+      <li><%= @prep.target_macros.last.fat %>g Fat</li>
+      <% if @prep.target_macros.last.fiber %>
+        <li><%= @prep.target_macros.last.fiber %>g Fiber</li>
+      <% end %>
+      <li><%= @prep.target_macros.last.total_calories %> Calories</li>
+      <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) %></li>
+      <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) %></li>
+      <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>
+    </ul>
+  </div>
+  <div class="medium-6 columns text-center">
+    <h4>Cardio</h4>
+    <ul class="no-bullet">
+      <li>Duration: <%= @prep.target_cardios.last.duration %> minutes</li>
+      <li>Activity: <%= @prep.target_cardios.last.activity %></li>
+      <li>Type: <%= @prep.target_cardios.last.style %></li>
+      <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) %></li>
+      <li><%= link_to "Set new target cardio", new_prep_target_cardio_path(@prep) %></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns text-center">
+    <h2>Latest Progress Photos</h2>
 
   </div>
 </div>
