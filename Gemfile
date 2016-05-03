@@ -30,9 +30,8 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass'
+gem 'foundation-rails'
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
 gem 'simple_form'
 gem 'faker'
 gem 'figaro'
