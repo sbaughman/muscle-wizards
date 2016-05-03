@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :target_macros
   resources :preps do
     resources :contests
     resources :photos

@@ -4,6 +4,7 @@ class Prep < ApplicationRecord
   has_many :cardios
   has_many :contests
   has_many :macros
+  has_many :target_macros
   validates :title, presence: true
 
   def weeks_til_contest

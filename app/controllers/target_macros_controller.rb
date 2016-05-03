@@ -1,0 +1,2 @@
+class TargetMacrosController < ApplicationController
+end

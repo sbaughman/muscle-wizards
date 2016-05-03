@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503155500) do
+ActiveRecord::Schema.define(version: 20160503174322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,21 @@ ActiveRecord::Schema.define(version: 20160503155500) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "target_macros", force: :cascade do |t|
+    t.integer  "protein"
+    t.integer  "carbs"
+    t.integer  "fat"
+    t.integer  "fiber"
+    t.integer  "prep_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prep_id"], name: "index_target_macros_on_prep_id", using: :btree
+  end
+
   add_foreign_key "bodyweights", "preps"
   add_foreign_key "cardios", "preps"
   add_foreign_key "contests", "preps"
   add_foreign_key "macros", "preps"
   add_foreign_key "photos", "preps"
+  add_foreign_key "target_macros", "preps"
 end
