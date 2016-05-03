@@ -5,4 +5,8 @@ class Prep < ApplicationRecord
   has_many :contests
   has_many :macros
   validates :title, presence: true
+
+  def weeks_til_contest
+    contests.first.date - Time.now
+  end
 end

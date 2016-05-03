@@ -1,5 +1,5 @@
 <%= simple_form_for [@prep, @contest] do |f| %>
   <%= f.input :title %>
-  <%= f.input :date %>
+  <%= f.input :date, as: :date %>
   <%= f.button :submit %>
 <% end %>
