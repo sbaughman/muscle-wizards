@@ -1,0 +1,5 @@
+<% photos.each do |photo| %>
+  <div class="medium-4 medium-center columns">
+    <%= image_tag(photo.image(:medium)) %>
+  </div>
+<% end %>
