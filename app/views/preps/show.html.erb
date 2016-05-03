@@ -1,5 +1,27 @@
 <div class="row">
-  <div class="medium-12 centered columns">
-    <h2 class="text-center">Hello</h2>
+  <div class="medium-12 columns">
+    <h2 class="text-center">12 Weeks Out from <%= @prep.contests.first.title %></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns text-center">
+    <h4>Weight</h4>
+    <h4><%= @prep.bodyweights.last.display_weight %></h4>
+    <h6>Start Weight: <%= @prep.bodyweights.first.display_weight %></h6>
+    <h6><%= time_ago_in_words(@prep.bodyweights.first.created_at) %> ago</h6>
+  </div>
+  <div class="medium-6 columns text-center">
+    <h4>Athlete</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <h2 class="text-center">Current Targets</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns text-center">
+    <h4>Macros</h4>
+
   </div>
 </div>

@@ -18,6 +18,10 @@ class PrepsController < ApplicationController
     end
   end
 
+  def show
+    @prep = Prep.find(params[:id])
+  end
+
   private
 
   def prep_params
