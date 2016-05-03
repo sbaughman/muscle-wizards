@@ -1,6 +1,6 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h2 class="text-center">12 Weeks Out from <%= @prep.contests.first.title if @prep.contests.first %></h2>
+    <h2 class="text-center"><%= pluralize(@time, @interval) %> from <%= @prep.contests.first.title if @prep.contests.first %></h2>
   </div>
 </div>
 <div class="row">
