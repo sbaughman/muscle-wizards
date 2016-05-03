@@ -1,0 +1,2 @@
+class TargetCardiosController < ApplicationController
+end
