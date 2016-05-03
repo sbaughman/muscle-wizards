@@ -1,0 +1,13 @@
+<h4>Macros</h4>
+<ul class="no-bullet">
+  <li><%= macros.protein %>g Protein</li>
+  <li><%= macros.carbs %>g Carbs</li>
+  <li><%= macros.fat %>g Fat</li>
+  <% if macros.fiber %>
+    <li><%= macros.fiber %>g Fiber</li>
+  <% end %>
+  <li><%= macros.total_calories %> Calories</li>
+  <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) %></li>
+  <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) %></li>
+  <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>
+</ul>
