@@ -1,5 +1,4 @@
-<h4>Weight</h4>
-  <h4><%= weight.display_weight %></h4>
-  <h6>Start Weight: <%= start_weight.display_weight %></h6>
-  <h6><%= time_ago_in_words(start_weight.created_at) %> ago</h6>
+<h4><%= weight.display_weight %></h4>
+<h6>Start Weight: <%= start_weight.display_weight %></h6>
+<h6><%= time_ago_in_words(start_weight.created_at) %> ago</h6>
 <%= link_to "Log new weight", new_prep_bodyweight_path(@prep) %>
