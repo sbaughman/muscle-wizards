@@ -1,8 +1,10 @@
 class PhotosController < ApplicationController
   before_action :set_prep
+  before_action :set_scope, only: [:index]
 
   def index
-    @photos = @prep.photos.order(created_at: :desc)
+    @photos = @scope.order(created_at: :desc)
+    @tags = Tag.all
   end
 
   def new
@@ -30,6 +32,15 @@ class PhotosController < ApplicationController
 
   def create_tags
     Tagging.create(photo_id: @photo.id, tag_id: params[:photo][:tag])
+  end
+
+  def set_scope
+    if params[:tag]
+      tag = Tag.find_by(name: params[:tag])
+      @scope = tag.photos.where(prep_id: params[:prep_id])
+    else
+      @scope = @prep.photos
+    end
   end
 
 end
