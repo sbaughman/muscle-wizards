@@ -20,7 +20,6 @@ class PrepsController < ApplicationController
 
   def show
     @prep = Prep.find(params[:id])
-    @time, @interval = @prep.time_til_contest
   end
 
   private
