@@ -2,7 +2,7 @@
 
 <%= link_to "Add a new weigh-in", new_prep_bodyweight_path(@prep) %>
 
-<%= line_chart @weights.map { |weight| [weight.created_at.strftime("%d %B %Y"), weight.display_weight]} %>
+<%= line_chart @weights.map { |weight| [weight.created_at.strftime("%d %B %Y"), weight.display_weight]}, min: @weights.first.display_weight-1, max: @weights.last.display_weight+1 %>
 
 <ul>
   <%= render @weights %>
