@@ -15,6 +15,8 @@
 //= require foundation
 //= require turbolinks
 //= require magnific-popup
+//= require highcharts
+//= require chartkick
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
