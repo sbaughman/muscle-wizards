@@ -23,6 +23,11 @@ $(document).ready(function() {
   $('.image-container').magnificPopup({
     type:'image',
     delegate: 'a',
+    image: {
+      titleSrc: function(item) {
+        return item.el.attr('title');
+      }
+    },
     gallery: {enabled:true}
   });
 });
