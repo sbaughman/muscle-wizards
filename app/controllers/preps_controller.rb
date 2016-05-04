@@ -20,6 +20,7 @@ class PrepsController < ApplicationController
 
   def show
     @prep = Prep.find(params[:id])
+    @photos = @prep.photos.order(created_at: :desc).limit(3)
   end
 
   private
