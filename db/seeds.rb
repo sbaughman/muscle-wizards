@@ -23,11 +23,31 @@ prep = athlete.prep.create!(title: "2016 Summer Competition Season")
 prep.contest.create!(title: "WNBF Pro Bowl", date: (Time.now + 7257600))
 
 weight = 2050
-counter = 22592000
+counter = 2592000
 30.times do
   bw = prep.bodyweights.create!(weight: weight)
   bw.created_at -= counter
   bw.save!
   weight -= rand(0..7)
+  counter -= 86400
+end
+
+counter = 2592000
+10.times do
+  macros = prep.target_macros.create!(protein: 250, carbs: 300, fat: 60)
+  macros.created_at -= counter
+  macros.save!
+  counter -= 86400
+end
+10.times do
+  macros = prep.target_macros.create!(protein: 250, carbs: 275, fat: 55)
+  macros.created_at -= counter
+  macros.save!
+  counter -= 86400
+end
+10.times do
+  macros = prep.target_macros.create!(protein: 230, carbs: 250, fat: 50)
+  macros.created_at -= counter
+  macros.save!
   counter -= 86400
 end
