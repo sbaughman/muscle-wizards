@@ -93,12 +93,12 @@ ActiveRecord::Schema.define(version: 20160504171523) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer  "photos_id"
-    t.integer  "tags_id"
+    t.integer  "photo_id"
+    t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["photos_id"], name: "index_taggings_on_photos_id", using: :btree
-    t.index ["tags_id"], name: "index_taggings_on_tags_id", using: :btree
+    t.index ["photo_id"], name: "index_taggings_on_photo_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -156,8 +156,8 @@ ActiveRecord::Schema.define(version: 20160504171523) do
   add_foreign_key "contests", "preps"
   add_foreign_key "macros", "preps"
   add_foreign_key "photos", "preps"
-  add_foreign_key "taggings", "photos", column: "photos_id"
-  add_foreign_key "taggings", "tags", column: "tags_id"
+  add_foreign_key "taggings", "photos"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "target_cardios", "preps"
   add_foreign_key "target_macros", "preps"
 end
