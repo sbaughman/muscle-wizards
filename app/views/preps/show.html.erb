@@ -46,10 +46,11 @@
   <div class="medium-12 columns text-center">
     <h2>Latest Progress Photos</h2>
     <% if @prep.photos.any? %>
-      <%= render partial: 'photos', locals: { photos: @prep.photos } %>
+      <%= render partial: 'photos', locals: { photos: @photos } %>
     <% else %>
       <h5>No Photos Added Yet</h5>
     <% end %>
     <%= link_to "Upload new Progress Pic", new_prep_photo_path(@prep) %>
+    <%= link_to "All Photos", prep_photos_path(@prep) %>
   </div>
 </div>
