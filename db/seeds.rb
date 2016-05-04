@@ -51,3 +51,23 @@ end
   macros.save!
   counter -= 86400
 end
+
+counter = 2592000
+10.times do
+  macros = prep.macros.create!(protein: rand(240..260), carbs: rand(280..325), fat: rand(52..68))
+  macros.created_at -= counter
+  macros.save!
+  counter -= 86400
+end
+10.times do
+  macros = prep.macros.create!(protein: rand(240..260), carbs: rand(260..295), fat: rand(49..60))
+  macros.created_at -= counter
+  macros.save!
+  counter -= 86400
+end
+10.times do
+  macros = prep.macros.create!(protein: rand(220..260), carbs: rand(235..265), fat: rand(45..55))
+  macros.created_at -= counter
+  macros.save!
+  counter -= 86400
+end
