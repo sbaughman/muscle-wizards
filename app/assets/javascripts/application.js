@@ -18,3 +18,11 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function() {
+  $('.image-container').magnificPopup({
+    type:'image',
+    delegate: 'a',
+    gallery: {enabled:true}
+  });
+});
