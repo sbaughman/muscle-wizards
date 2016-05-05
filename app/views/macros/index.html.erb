@@ -1,6 +1,9 @@
 <h1>Macro History:</h1>
 
 <%= link_to "Add new macros", new_prep_macro_path(@prep) %>
+
+<%= render partial: 'macro_chart' %>
+
 <ul>
   <%= render @macros %>
 </ul>

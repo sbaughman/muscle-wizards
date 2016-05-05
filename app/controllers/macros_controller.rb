@@ -3,6 +3,7 @@ class MacrosController < ApplicationController
 
   def index
     @macros = @prep.macros.order(created_at: :desc)
+    @target_macros = @prep.target_macros.order(created_at: :desc)
   end
 
   def new

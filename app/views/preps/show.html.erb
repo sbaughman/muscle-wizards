@@ -1,6 +1,6 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h2 class="text-center"><%= time_til_contest(@prep) %> from <%= @prep.contests.first.title if @prep.contests.first %></h2>
+    <h2 class="text-center"><%= time_til_contest(@prep) %> from <%= @prep.contests.first.title if @prep.contests.any? %></h2>
   </div>
 </div>
 <div class="row">
@@ -16,6 +16,7 @@
   <div class="medium-6 columns text-center">
     <h4>Athlete</h4>
     <%= image_tag(@prep.user.avatar(:thumb)) %>
+    <h6><%= link_to @prep.user.name, user_path(@prep.user) %></h6>
   </div>
 </div>
 <div class="row">
