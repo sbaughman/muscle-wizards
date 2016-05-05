@@ -10,7 +10,7 @@ module MuscleWizards
   class Application < Rails::Application
     Rails.application.config.middleware.use OmniAuth::Builder do
       provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'],
-      :scope => 'email'
+      :scope => 'email', :display => 'popup'
     end
   end
 end

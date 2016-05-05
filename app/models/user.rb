@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # :confirmable, :lockable, :timeoutable and
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :preps
   has_attached_file :avatar, styles: { medium: "300X300#", thumb: "100x100#" }
   validates :avatar, attachment_presence: true
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validate :email_is_valid_format
   validate :password_might_not_be_completely_terrible
   before_validation :downcase_email
-  # before_save :set_default_avatar
+  before_save :set_default_avatar
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
@@ -32,8 +32,17 @@ class User < ApplicationRecord
     errors.add(:password, "Password must contain at least four unique characters") unless self.password.split('').uniq.length >= 4
   end
 
-  # def set_default_avatar
-  #    self.avatar ||= "https://unsplash.it/400/?image=1061"
-  # end
+  def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
+  end
+
+  def set_default_avatar
+     self.avatar ||= URI.parse("https://unsplash.it/400/?image=1061")
+  end
 
 end
