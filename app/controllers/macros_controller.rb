@@ -3,6 +3,8 @@ class MacrosController < ApplicationController
 
   def index
     @macros = @prep.macros.order(created_at: :desc)
+    @target_macros = @prep.target_macros.order(created_at: :desc)
+    @minmax = (@macros.map { |macro| macro.calories } + @target_macros.map { |macro| macro.calories }).minmax
   end
 
   def new

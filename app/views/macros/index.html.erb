@@ -1,8 +1,18 @@
-<h1>Macro History:</h1>
 
-<%= link_to "Add new macros", new_prep_macro_path(@prep) %>
+<%= link_to  "Add new macros", new_prep_macro_path(@prep), class: 'button' %>
+<%= link_to "Back to Prep Home", prep_path(@prep), class: "button" %>
+
+<div class="row">
+  <div class="medium-6 columns">
+    <h3 class="text-center">Macros</h3>
+    <%= render partial: 'macro_chart' %>
+  </div>
+  <div class="medium-6 columns">
+    <h3 class="text-center">Calories</h3>
+    <%= render partial: 'calorie_chart' %>
+  </div>
+</div>
+
 <ul>
   <%= render @macros %>
 </ul>
-
-<%= link_to "Back to Prep Home", prep_path(@prep) %>

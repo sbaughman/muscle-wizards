@@ -3,6 +3,8 @@ class CardiosController < ApplicationController
 
     def index
       @cardios = @prep.cardios.order(created_at: :desc)
+      @target_cardios = @prep.target_cardios.order(created_at: :desc)
+      @minmax = (@cardios.map { |cardio| cardio.duration} + @target_cardios.map { |cardio| cardio.duration }).minmax
     end
 
     def new
