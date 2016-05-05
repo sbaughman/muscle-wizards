@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   root 'preps#index'
   get 'preps/:prep_id/photos/poses/:tag' => 'photos#index', as: :pose
-  get '/auth/facebook/callback' => 'users#show'
+  # get '/auth/facebook/callback' => 'users#show'
+
+  get 'auth/:facebook/callback' => 'devise/registrations#new'
+  get 'auth/failure', to: redirect('/')
 
 end
