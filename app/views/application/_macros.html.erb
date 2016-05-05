@@ -5,7 +5,7 @@
   <% if macros.fiber %>
     <li><%= macros.fiber %>g Fiber</li>
   <% end %>
-  <li><%= macros.total_calories %> Calories</li>
+  <li><%= macros.calories %> Calories</li>
   <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) %></li>
   <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) %></li>
   <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>

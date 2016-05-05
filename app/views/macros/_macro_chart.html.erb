@@ -1,27 +1,27 @@
 <%= line_chart [
   {
     name: "Protein",
-    data: @macros.map { |macro| [macro.created_at, macro.protein] }
+    data: @macros.map { |macro| [macro.created_at.strftime("%D"), macro.protein] }
   },
   {
     name: "Carbs",
-    data: @macros.map { |macro| [macro.created_at, macro.carbs] }
+    data: @macros.map { |macro| [macro.created_at.strftime('%D'), macro.carbs] }
   },
   {
     name: "Fat",
-    data: @macros.map { |macro| [macro.created_at, macro.fat] }
+    data: @macros.map { |macro| [macro.created_at.strftime('%D'), macro.fat] }
   },
   {
     name: "Target Protein",
-    data: @target_macros.map { |macro| [macro.created_at, macro.protein] }
+    data: @target_macros.map { |macro| [macro.created_at.strftime('%D'), macro.protein] }
   },
   {
     name: "Target Carbs",
-    data: @target_macros.map { |macro| [macro.created_at, macro.carbs] }
+    data: @target_macros.map { |macro| [macro.created_at.strftime('%D'), macro.carbs] }
   },
   {
     name: "Target Fat",
-    data: @target_macros.map { |macro| [macro.created_at, macro.fat] }
+    data: @target_macros.map { |macro| [macro.created_at.strftime('%D'), macro.fat] }
   }
   ],
   ytitle: "Macro Quantity (g)" %>

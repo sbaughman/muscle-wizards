@@ -1,8 +1,14 @@
-<h1>Cardio History:</h1>
+<div class="row">
+  <%= link_to "Add new cardio", new_prep_cardio_path(@prep), class: "button" %>
 
-<%= link_to "Add new cardio", new_prep_cardio_path(@prep) %>
-<ul>
-  <%= render @cardios %>
-</ul>
+  <%= link_to "Back to Prep Home", prep_path(@prep), class: "button" %>
+  <div class="medium-12 columns">
+    <h3 class="text-center">Cardio History</h3>
+    <%= render partial: 'cardio_chart' %>
+  </div>
 
-<%= link_to "Back to Prep Home", prep_path(@prep) %>
+
+  <ul>
+    <%= render @cardios %>
+  </ul>
+</div>
