@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   root 'preps#index'
   get 'preps/:prep_id/photos/poses/:tag' => 'photos#index', as: :pose
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/auth/facebook/callback' => 'users#show'
+
 end
