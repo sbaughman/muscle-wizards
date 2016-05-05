@@ -10,10 +10,10 @@ end
 athlete = User.create!(email: "example@example.com", name: Faker::Name.name, gender: "M", age: 32, bio: Faker::Hipster.sentence, height: 68, phone_number: 3175555555, password: "password", avatar: URI.parse("https://i.ytimg.com/vi/mwOQNfBBqSc/hqdefault.jpg"))
 
 # Creates a new prep
-prep = athlete.prep.create!(title: "2016 Summer Competition Season")
+prep = athlete.preps.create!(title: "2016 Summer Competition Season")
 
 # Creates a new contest
-prep.contest.create!(title: "WNBF Pro Bowl", date: (Time.now + 7257600))
+prep.contests.create!(title: "WNBF Pro Bowl", date: (Time.now + 7257600))
 
 # Creates 30 days of weigh-ins
 weight = 2050
@@ -68,7 +68,49 @@ end
   counter -= 86400
 end
 
-# creates 4 weeks of tagged progress photos, one for each tag every week
+# creates 30 days of target_cardios
+counter = 2592000
+10.times do
+  cardios = prep.target_cardios.create!(duration: 15, activity: "Stairclimber", style: "HIIT")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+10.times do
+  cardios = prep.target_cardios.create!(duration: 25, activity: "Bike", style: "HIIT")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+10.times do
+  cardios = prep.target_cardios.create!(duration: 45, activity: "Stairclimber", style: "LISS")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+
+# creates 30 days of cardio logs
+counter = 2592000
+10.times do
+  cardios = prep.cardios.create!(duration: rand(12..18), activity: "Stairclimber", style: "HIIT")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+10.times do
+  cardios = prep.cardios.create!(duration: rand(22..30), activity: "Bike", style: "HIIT")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+10.times do
+  cardios = prep.cardios.create!(duration: rand(40..50), activity: "Stairclimber", style: "LISS")
+  cardios.created_at -= counter
+  cardios.save!
+  counter -= 86400
+end
+
+# creates 5 weeks of tagged progress photos, one for each tag every week
 counter = 2592000
 5.times do
   10.times do |i|
