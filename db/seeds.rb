@@ -7,7 +7,7 @@ poses.each do |pose|
 end
 
 # Creates a new athlete to which all of the subsequent models belong
-athlete = User.create!(email: "example@example.com", name: Faker::Name.name, gender: "M", age: 32, bio: Faker.hipster.sentence, height: 68, phone_number: 3175555555)
+athlete = User.create!(email: "example@example.com", name: Faker::Name.name, gender: "M", age: 32, bio: Faker::Hipster.sentence, height: 68, phone_number: 3175555555, password: "password", avatar: URI.parse("https://i.ytimg.com/vi/mwOQNfBBqSc/hqdefault.jpg"))
 
 # Creates a new prep
 prep = athlete.prep.create!(title: "2016 Summer Competition Season")
