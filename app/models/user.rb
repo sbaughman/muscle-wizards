@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
+  def set_default_avatar   
+    self.avatar = URI.parse("https://unsplash.it/400/?image=1061") if avatar.blank?
+  end
+
   private
 
   def email_is_valid_format
@@ -29,10 +33,6 @@ class User < ApplicationRecord
 
   def password_might_not_be_completely_terrible
     errors.add(:password, "Password must contain at least four unique characters") unless self.password.split('').uniq.length >= 4
-  end
-
-  def set_default_avatar
-     self.avatar ||= URI.parse("https://unsplash.it/400/?image=1061")
   end
 
 end

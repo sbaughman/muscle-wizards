@@ -33,9 +33,13 @@ $(document).ready(function() {
     gallery: {enabled:true}
   });
   $(function() {
-    $('#contest_date').datepicker();
+    $('#contest_date').datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
   });
   $(function() {
-    $('#prep_contests_attributes_0_date').datepicker();
+    $('#prep_contests_attributes_0_date').datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
   });
 });

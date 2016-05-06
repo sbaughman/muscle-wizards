@@ -54,7 +54,11 @@
     <% else %>
       <h5>No Photos Added Yet</h5>
     <% end %>
-    <%= link_to "Upload new Progress Pic", new_prep_photo_path(@prep) %>
-    <%= link_to "All Photos", prep_photos_path(@prep) %>
+  </div>
+  <div class="medium-6 columns text-center">
+    <%= link_to "Upload new Progress Pic", new_prep_photo_path(@prep), class: "expanded button" %>
+  </div>
+  <div class="medium-6 columns text-center">
+    <%= link_to "All Photos", prep_photos_path(@prep), class: "expanded button" %>
   </div>
 </div>

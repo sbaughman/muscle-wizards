@@ -2,7 +2,7 @@
   <div class="medium-4 columns">
     <h4>Your Account</h4>
     <div id="user-info">
-      <%= image_tag(@user.avatar) %>
+      <%= image_tag(@user.avatar(:medium)) %>
       <ul class="no-bullet">
         <li>Name: <%= @user.name %></li>
         <li>Email: <%= @user.email %></li>
@@ -17,8 +17,11 @@
   <div class="medium-8 columns">
     <h2>Preps:</h2>
     <% @user.preps.each do |prep| %>
-      <%= render partial: 'preps/prep', locals: { prep: prep } %>
+      <ul class="no-bullet">
+        <li><%= render partial: 'preps/prep', locals: { prep: prep } %></li>
+      </ul>
     <% end %>
+    <%= link_to "Add another prep", new_prep_path unless @user.preps %>
     <% if @user.preps.empty? %>
       <h5>You don't have any preps started yet.  <%= link_to "Start one now!", new_prep_path %></h5>
     <% end %>
