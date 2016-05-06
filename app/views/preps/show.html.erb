@@ -1,12 +1,12 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h2 class="text-center"><%= time_til_contest(@prep) %> from <%= @prep.contests.first.title if @prep.contests.any? %></h2>
+    <h2 class="text-center"><%= time_til_contest %> from <%= @prep.contests.first.title %></h2>
   </div>
 </div>
 <div class="row">
   <div class="medium-6 columns text-center">
     <h4>Weight</h4>
-    <% if @prep.bodyweights.first %>
+    <% if @prep.bodyweights.any? %>
       <%= render partial: 'weight', locals: { weight: @prep.bodyweights.last, start_weight: @prep.bodyweights.first } %>
     <% else %>
         <h6>No weigh-ins recorded yet</h6>
@@ -15,8 +15,10 @@
   </div>
   <div class="medium-6 columns text-center">
     <h4>Athlete</h4>
-    <%= image_tag(@prep.user.avatar(:thumb)) %>
-    <h6><%= link_to @prep.user.name, user_path(@prep.user) %></h6>
+    <%= link_to user_path(@prep.user) do %>
+      <%= image_tag(@prep.user.avatar(:thumb)) %>
+      <h6><%= @prep.user.name  %></h6>
+    <% end %>
   </div>
 </div>
 <div class="row">
@@ -27,7 +29,7 @@
 <div class="row">
   <div class="medium-6 columns text-center">
     <h4>Macros</h4>
-    <% if @prep.target_macros.first %>
+    <% if @prep.target_macros.any? %>
       <%= render partial: 'macros', locals: { macros: @prep.target_macros.last } %>
     <% else %>
       <h6>No target macros set yet</h6>
@@ -36,7 +38,7 @@
   </div>
   <div class="medium-6 columns text-center">
     <h4>Cardio</h4>
-    <% if @prep.target_cardios.first %>
+    <% if @prep.target_cardios.any? %>
       <%= render partial: 'cardio', locals: { cardio: @prep.target_cardios.last } %>
     <% else %>
       <h6>No cardio set yet</h6>
