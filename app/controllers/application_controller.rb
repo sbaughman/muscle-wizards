@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     @prep = Prep.find(params[:prep_id])
   end
 
+  def require_user
+    redirect_to home_path unless current_user
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -1,4 +1,5 @@
 class TargetMacrosController < ApplicationController
+  before_action :require_user
   before_action :set_prep
 
   def index
