@@ -3,7 +3,7 @@
     <%= f.input :title %>
     <%= f.simple_fields_for(:contests) do |contest_form| %>
       <%= contest_form.input :title, label: "Contest Name" %>
-      <%= contest_form.input :date %>
+      <%= contest_form.text_field :date %>
     <% end %>
     <%= f.button :submit %>
   <% end %>

@@ -32,4 +32,10 @@ $(document).ready(function() {
     },
     gallery: {enabled:true}
   });
+  $(function() {
+    $('#contest_date').datepicker();
+  });
+  $(function() {
+    $('#prep_contests_attributes_0_date').datepicker();
+  });
 });
