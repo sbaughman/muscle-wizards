@@ -1,4 +1,5 @@
 class PrepsController < ApplicationController
+  before_action :require_user
 
   def index
     @preps = Prep.all

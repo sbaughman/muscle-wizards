@@ -1,11 +1,16 @@
-<div class="row text-center">
-  <h1>Your Account</h1>
-  <div id="user-info">
-    <h2>Name: <%= @user.name %></h2>
-    <h2>Email: <%= @user.email %></h2>
-    <h2>Gender: <%= @user.gender %></h2>
-    <h2>Age: <%= @user.age %></h2>
-    <h2>Bio: <%= @user.bio %></h2>
-    <h2>Height: <%= @user.height %></h2>
-  <div>
+<div class="row">
+  <div class="medium-4 columns">
+    <h4>Your Account</h4>
+    <div id="user-info">
+      <%= image_tag(@user.avatar) %>
+      <ul class="no-bullet">
+        <li>Name: <%= @user.name %></li>
+        <li>Email: <%= @user.email %></li>
+        <li>Gender: <%= @user.gender %></li>
+        <li>Age: <%= @user.age %></li>
+        <li>Bio: <%= @user.bio %></li>
+        <li>Height: <%= @user.height %></li>
+      </ul>
+    <div>
+  </div>
 </div>
