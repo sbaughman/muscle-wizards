@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require foundation
 //= require magnific-popup
 //= require highcharts
@@ -30,5 +31,11 @@ $(document).ready(function() {
       }
     },
     gallery: {enabled:true}
+  });
+  $(function() {
+    $('#contest_date').datepicker();
+  });
+  $(function() {
+    $('#prep_contests_attributes_0_date').datepicker();
   });
 });
