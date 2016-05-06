@@ -6,6 +6,7 @@
         <li><%= link_to tag.name, pose_path(prep_id: @prep, tag: tag.name) %></li>
       <% end %>
     </ul>
+    <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
   </div>
   <div class="medium-10 columns">
     <% if params[:tag] %>
