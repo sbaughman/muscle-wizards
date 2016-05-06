@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     resources :bodyweights
   end
 
-  root 'preps#index'
+  root 'users#show'
   get 'preps/:prep_id/photos/poses/:tag' => 'photos#index', as: :pose
 end
