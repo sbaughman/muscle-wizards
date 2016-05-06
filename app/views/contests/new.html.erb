@@ -1,5 +1,11 @@
-<%= simple_form_for [@prep, @contest] do |f| %>
+<%= simple_form_for [@prep, @contest], input_html: { class: "datepicker" } do |f| %>
   <%= f.input :title %>
-  <%= f.input :date, as: :datetime %>
+  <%= f.text_field :date %>
   <%= f.button :submit %>
 <% end %>
+
+<script>$(function() {
+  $('#contest_date').datepicker();
+});
+console.log("this works!")
+</script>
