@@ -6,6 +6,7 @@ class PrepsController < ApplicationController
 
   def new
     @prep = Prep.new
+    @prep.contests.build
   end
 
   def create
@@ -26,7 +27,7 @@ class PrepsController < ApplicationController
   private
 
   def prep_params
-    params.require(:prep).permit(:title)
+    params.require(:prep).permit(:title, contests_attributes: [:title, :date])
   end
 
 end

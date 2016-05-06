@@ -1,4 +1,10 @@
-<%= simple_form_for (@prep) do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <%= simple_form_for (@prep) do |f| %>
+    <%= f.input :title %>
+    <%= f.simple_fields_for(:contests) do |contest_form| %>
+      <%= contest_form.input :title, label: "Contest Name" %>
+      <%= contest_form.input :date %>
+    <% end %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
