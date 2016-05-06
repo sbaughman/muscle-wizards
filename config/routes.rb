@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'home' => 'static_pages#home', as: :home
+  get 'about' => 'static_pages#about', as: :about
+
   devise_for :users
   resources :users
   resources :preps do
@@ -14,5 +17,4 @@ Rails.application.routes.draw do
 
   root 'preps#index'
   get 'preps/:prep_id/photos/poses/:tag' => 'photos#index', as: :pose
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
