@@ -17,12 +17,35 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.prep = @prep
     if @photo.save
-      create_tags unless params[:photo][:tag].blank?
+      create_tag unless params[:photo][:tag].blank?
       flash[:success] = "Photo created!"
       redirect_to prep_photos_path(@prep)
     else
       render :new
     end
+  end
+
+  def edit
+    @photo = Photo.find(params[:id])
+    @tags = Tag.all
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.tagging.destroy
+    if @photo.save
+      create_tag unless params[:photo][:tag].blank?
+      flash[:success] = "Photo updated!"
+      redirect_to prep_photos_path(@prep)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to prep_photos_path(@prep)
   end
 
   private
@@ -31,7 +54,7 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:image)
   end
 
-  def create_tags
+  def create_tag
     Tagging.create(photo_id: @photo.id, tag_id: params[:photo][:tag])
   end
 
