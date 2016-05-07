@@ -21,3 +21,52 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 end
+
+
+# describe OrderProcessor do
+#   let(:transaction_id) { '1234' }
+#   let(:order) { build_stubbed(:order) }
+#   let(:credit_card) { build_stubbed(:credit_card) }
+#
+#   subject { OrderProcessor.new(order, credit_card) }
+#
+#   context 'when the Braintree result is valid' do
+#     before do
+#       MockBraintree.stub_successful_customer_sale(transaction_id: transaction_id)
+#     end
+#
+#     it 'assigns the transaction id to the order' do
+#       subject.process
+#       order.transaction_id.should == transaction_id
+#     end
+#
+#     it 'returns true for #process' do
+#       subject.process.should be
+#     end
+#
+#     it 'does not assign any errors to the credit card' do
+#       subject.process
+#       credit_card.errors.should be_empty
+#     end
+#   end
+#
+#   context 'when the Braintree result is invalid' do
+#     before do
+#       MockBraintree.stub_unsuccessful_customer_sale
+#     end
+#
+#     it 'does not assign the transaction id to the order' do
+#       subject.process
+#       order.transaction_id.should be_nil
+#     end
+#
+#     it 'returns false for #process' do
+#       subject.process.should_not be
+#     end
+#
+#     it 'assigns errors to the credit card' do
+#       subject.process
+#       credit_card.errors.should_not be_empty
+#     end
+#   end
+# end
