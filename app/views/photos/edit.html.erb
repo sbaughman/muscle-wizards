@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="medium-3 columns end">
+    <h2>Edit Photo</h2>
+    <%= image_tag @photo.image(:medium) %>
+    <%= simple_form_for [@prep, @photo] do |f| %>
+      <%= f.input :tag, collection: @tags, label: 'Select Pose (optional)' %>
+      <%= f.button :submit, class: "expanded button" %>
+    <% end %>
+    <%= link_to "Delete Photo", prep_photo_path(@prep, @photo), :method => :delete, class: "expanded button" %>
+  </div>
+</div>
