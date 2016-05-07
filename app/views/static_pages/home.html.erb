@@ -1,21 +1,21 @@
 <div class="row">
-  <div class="text-center">
-    <h1>MuscleWizards</h1>
+  <div class="text-center title">
+    <h1><span class="green">Muscle</span>Wizards</h1>
     <h3>Contest Prep. Simplified.</h3>
     <%= link_to "Find out more", about_path %>
   </div>
-  <div class="medium-6 columns text-center">
+  <div class="medium-6 columns text-center sign-in coach">
     <h5>I'm a</h5>
-    <h2>COACH</h2>
+    <h1>COACH</h1>
     <%= link_to "SIGN IN", "#", class: "button" %>
-    <h5>OR</h5>
+    <h6>OR</h6>
     <%= link_to "SIGN UP", "#", class: "button" %>
   </div>
-  <div class="medium-6 columns text-center">
+  <div class="medium-6 columns text-center sign-in athlete">
     <h5>I'm an</h5>
-    <h2>ATHLETE</h2>
+    <h1>ATHLETE</h1>
     <%= link_to "SIGN IN", new_user_session_path, class: "button" %>
-    <h5>OR</h5>
+    <h6>OR</h6>
     <%= link_to "SIGN UP", new_user_registration_path, class: "button" %>
   </div>
 </div>

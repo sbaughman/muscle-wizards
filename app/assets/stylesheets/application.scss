@@ -12,7 +12,87 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
  *= require magnific-popup
  *= require jquery-ui/datepicker
  */
+
+@import "settings";
+@import "foundation_and_overrides";
+
+body {
+  background: url(asset_path('mw_bg.png')) no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1,h2,h3,h4 {
+  font-weight: 100;
+}
+
+.green {
+  color: $primary-color;
+}
+
+.button {
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 2px rgba(90,216,164,1);
+  background-color: rgba(0,0,0,.2);
+  transition: background, box-shadow, .25s ease-in-out;
+}
+.button:hover {
+  box-shadow: 0px 0px 12px 4px rgba(90,216,164,1);
+  background-color: rgba(0,0,0,.4);
+}
+
+/* navbar */
+.top-bar {
+  background: rgba(0,0,0,.7);
+  ul {
+    background: none;
+  }
+}
+
+
+/* home page */
+.title {
+  margin-top: 4em;
+  margin-bottom: 3em;
+  h1 {
+    font-size: 6em;
+    font-weight: 100;
+    margin-bottom: -10px;
+  }
+  h3 {
+    font-weight: 100;
+  }
+}
+
+.sign-in {
+  padding-bottom: 10px;
+  h1 {
+    font-weight: 100;
+  }
+  h5 {
+    margin-bottom: -6px;
+  }
+  h6 {
+    margin-bottom: 12px;
+  }
+  .button {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.coach {
+  border-right: 1px solid white;
+}
+
+/* about page */
+.about {
+  ul {
+    margin-bottom: 30px;
+  }
+  li {
+    margin-bottom: 15px;
+  }
+}
