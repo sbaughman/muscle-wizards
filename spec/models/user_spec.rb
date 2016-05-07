@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
 
   before(:example) do
-    @user = @valid_user
+    # let(:user) { FactoryGirl.build(:user) } # I want to understand what the difference is between this and what I'm using
+    @user = FactoryGirl.build(:user)
   end
 
   it "is not valid without a name" do
