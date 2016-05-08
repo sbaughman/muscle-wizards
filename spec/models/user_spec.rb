@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-
-  # before(:example) do
-  #   # let(:user) { FactoryGirl.build(:user) } # I want to understand what the difference is between this and what I'm using
-  #   @user = FactoryGirl.build(:user)
-  # end
+  let(:valid_user) { FactoryGirl.create(:user) }
 
   context "invalid user" do
     it "is not valid without a name" do
@@ -13,9 +9,47 @@ RSpec.describe User, :type => :model do
       expect(@user).not_to be_valid
     end
 
-    it "is not valid without an email" do
-      @user = FactoryGirl.build(:user, email: nil)
-      expect(@user).not_to be_valid
+    context "email" do
+      it "is not valid without an email" do
+        @user = FactoryGirl.build(:user, email: nil)
+        expect(@user).not_to be_valid,
+        "User #{@user.name} should not have been valid without an email"
+      end
+
+      it "is not valid without a unique e-mail" do
+        @user = FactoryGirl.build(:user, email: valid_user.email)
+        expect(@user).not_to be_valid,
+        "User #{@user.name} should not have been valid with a duplicate email"
+      end
+    end
+
+    context "age" do
+      it "is not valid without an age" do
+        @user = FactoryGirl.build(:user, age: nil)
+        expect(@user).not_to be_valid
+      end
+    end
+
+    context "height" do
+      it "is not valid without a height" do
+        @user = FactoryGirl.build(:user, height: nil)
+        expect(@user).not_to be_valid
+      end
+    end
+
+    context "gender" do
+      it "is not valid without a gender" do
+        @user = FactoryGirl.build(:user, gender: nil)
+        expect(@user).not_to be_valid
+      end
+    end
+
+    context "password" do
+      it "is not valid without a password" do
+        skip
+        @user = FactoryGirl.build(:user, password: nil)
+        expect(@user).not_to be_valid
+      end
     end
   end
 
