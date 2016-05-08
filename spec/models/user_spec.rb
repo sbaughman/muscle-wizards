@@ -39,7 +39,6 @@ RSpec.describe User, :type => :model do
 
     context "gender" do
       it "is not valid without a gender" do
-        skip
         @user = FactoryGirl.build(:user, gender: nil)
         expect(@user).not_to be_valid
       end

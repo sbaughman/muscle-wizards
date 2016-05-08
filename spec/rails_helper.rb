@@ -32,6 +32,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    @@example = "example" # All tests will have access to class vars put here!
+    Warden.test_mode!
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
