@@ -47,7 +47,7 @@ RSpec.describe User, :type => :model do
     context "password" do
       it "is not valid without a password" do
         skip
-        @user = FactoryGirl.build(:user, password: nil)
+        @user = FactoryGirl.create(:user, password: nil)
         expect(@user).not_to be_valid
       end
     end
