@@ -54,9 +54,8 @@ RSpec.describe User, :type => :model do
   end
 
   context "valid user" do
-    it "is valid if name, email, age, and height are present, age and height are numbers, if email is unique and a valid format, and if password is present and has more than four unique characters" do
-      @user = FactoryGirl.build(:user)
-      expect(@user).to be_valid
+    it "has a valid factory" do
+      expect(FactoryGirl.build(:user).save)
     end
   end
 end
