@@ -1,9 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "Sign up", :type => :feature do
-  @user = FactoryGirl.create(:user, password: "pancakes")
-  @user_w_preps = FactoryGirl.create(:user, password: "pancakes")
-  FactoryGirl.create(:prep, user_id: @user_w_preps.id)
 
   scenario "New user signs in" do
     email = Faker::Internet.email
@@ -21,32 +18,33 @@ RSpec.feature "Sign up", :type => :feature do
     expect(page).to have_text("Your Account")
   end
 
-  scenario "Prepless existing user logs in" do
+  scenario "Prepless existing user logs in and sees account page" do
     visit "/users/sign_in"
-    fill_in "Email",    :with => @user.email
+    fill_in "Email",    :with => @@user.email
     fill_in "Password", :with => "pancakes"
     click_button "Log in"
     expect(current_path).to eq "/"
-    expect(page).to have_text("Your Account.")
+    expect(page).to have_text("Your Account")
   end
 
-  scenario "Prepped existing user logs in" do
+  scenario "Prepped existing user logs in and sees prep show" do
     visit "/users/sign_in"
-    fill_in "Email",    :with => @user_w_preps
+    fill_in "Email",    :with => @@user_w_preps.email
     fill_in "Password", :with => "pancakes"
     click_button "Log in"
-    expect(current_path).to eq "/preps/#{current_user.preps.last.id}"
+    expect(current_path).to eq "/preps/#{@@user_w_preps.preps.last.id}"
     expect(page).to have_text "weeks from #{@prep.title}"
   end
 
   scenario "Logged in user redirects to root on sign up" do
-    current_user = User.first
+    login_as(@@user, :scope => :user)
     visit "/users/sign_up"
     expect(current_path).to eq "/"
     expect(page).to have_text "You are already logged in"
   end
 
   scenario "Logged in user redirects to root on log in" do
+    login_as(@@user, :scope => :user)
     current_user = User.first
     visit "/users/sign_in"
     expect(current_path).to eq "/"
