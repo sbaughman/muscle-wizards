@@ -3,9 +3,10 @@
     <h2>About:</h2>
     <!-- <h3 class="green">Certifications:</h3> -->
     <%#= render partial: 'certifications', locals {certs: @user.certifications} %>
-    <h3 class="green">Philosophy:</h3>
-
-    <%= simple_format(@user.philosophy) %>
+    <% if @user.philosophy %>
+      <h3 class="green">Philosophy:</h3>
+      <%= render partial: 'philosophies/philosophy' %>
+    <% end %>
 
     <!-- <h3 class="green">Testimonials:</h3> -->
     <%#= render partial: 'testimonials', locals {testes: @user.testimonials} %>

@@ -1,5 +1,5 @@
 <h2>Preps:</h2>
-<% if @coached_preps.any? %>
+<% if @coached_preps %>
   <h3 class="green">Coached Preps:</h3>
   <% @coached_preps.each do |prep| %>
     <%= render partial: 'preps/coached_prep', locals: { prep: prep } %>
