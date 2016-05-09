@@ -36,6 +36,7 @@ RSpec.configure do |config|
   config.before :suite do
     @@user = FactoryGirl.create(:user, password: "pancakes")
     @@user_w_preps = FactoryGirl.create(:user, password: "pancakes")
+    @@photo = URI.parse(Faker::Avatar.image)
     @@example = "example" # All tests will have access to class vars put here!
     FactoryGirl.create(:prep, user_id: @@user_w_preps.id)
     FactoryGirl.create(:contest, prep_id: @@user_w_preps.preps.last)

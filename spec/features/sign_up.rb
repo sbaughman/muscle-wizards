@@ -32,8 +32,8 @@ RSpec.feature "Sign up", :type => :feature do
     fill_in "Email",    :with => @@user_w_preps.email
     fill_in "Password", :with => "pancakes"
     click_button "Log in"
-    expect(current_path).to eq "/preps/#{@@user_w_preps.preps.last.id}"
-    expect(page).to have_text "weeks from #{@prep.title}"
+    expect(current_path).to eq "/"
+    expect(page).to have_text "weeks from #{@@user_w_preps.preps.last.contests.first.title}"
   end
 
   scenario "Logged in user redirects to root on sign up" do
