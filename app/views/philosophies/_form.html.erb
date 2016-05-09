@@ -1,0 +1,4 @@
+<%= simple_form_for [current_user, @philosophy] do |f| %>
+  <%= f.input :words, label: "Philosophy Summary", placeholder: "What do you want people to know about your training?" %>
+  <%= f.button :submit %>
+<% end %>
