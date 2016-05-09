@@ -1,0 +1,5 @@
+<h4>Athlete</h4>
+<%= link_to user_path(@prep.user) do %>
+  <%= image_tag(@prep.user.avatar(:thumb)) %>
+  <h6><%= @prep.user.name  %></h6>
+<% end %>

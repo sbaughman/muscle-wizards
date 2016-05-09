@@ -1,5 +1,11 @@
-<% photos.each do |photo| %>
-  <div class="medium-4 medium-center columns">
-    <%= image_tag(photo.image(:medium)) %>
+<% if photos.any? %>
+  <% photos.each do |photo| %>
+    <div class="medium-4 medium-center columns">
+      <%= image_tag(photo.image(:medium)) %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="medium-12 columns text-center">
+    <h5>No Photos Added Yet</h5>
   </div>
 <% end %>

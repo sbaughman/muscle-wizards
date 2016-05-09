@@ -5,18 +5,10 @@
 </div>
 <div class="row">
   <div class="medium-4 columns text-center">
-    <h4>Athlete</h4>
-    <%= link_to user_path(@prep.user) do %>
-      <%= image_tag(@prep.user.avatar(:thumb)) %>
-      <h6><%= @prep.user.name  %></h6>
-    <% end %>
+    <%= render partial: 'athlete' %>
   </div>
   <div class="medium-4 columns text-center">
-    <h4>Communication</h4>
-    <ul class="no-bullet">
-      <li><%= link_to "Resources", "#" %></li>
-      <li><%= link_to "Message Coach", "#" %></li>
-    </ul>
+    <%= render partial: 'communication' %>
   </div>
   <div class="medium-4 columns text-center">
     <%= render partial: 'coach' %>
@@ -29,42 +21,22 @@
 </div>
 <div class="row">
   <div class="medium-4 columns text-center">
-    <h4>Weight</h4>
-    <% if @prep.bodyweights.any? %>
-      <%= render partial: 'weight', locals: { weight: @prep.bodyweights.last, start_weight: @prep.bodyweights.first } %>
-    <% else %>
-        <h6>No weigh-ins recorded yet</h6>
-        <%= link_to "Log starting weight", new_prep_bodyweight_path(@prep) %>
-    <% end %>
+    <%= render partial: 'weight', locals: { weights: @prep.bodyweights } %>
   </div>
   <div class="medium-4 columns text-center">
-    <h4>Macros</h4>
-    <% if @prep.target_macros.any? %>
-      <%= render partial: 'macros', locals: { macros: @prep.target_macros.last } %>
-    <% else %>
-      <h6>No target macros set yet</h6>
-      <%= link_to "Set macro goals", new_prep_target_macro_path(@prep) %>
-    <% end %>
+    <%= render partial: 'macros', locals: { macros: @prep.target_macros } %>
   </div>
   <div class="medium-4 columns text-center">
-    <h4>Cardio</h4>
-    <% if @prep.target_cardios.any? %>
-      <%= render partial: 'cardio', locals: { cardio: @prep.target_cardios.last } %>
-    <% else %>
-      <h6>No cardio set yet</h6>
-      <%= link_to "Set cardio goal", new_prep_target_cardio_path(@prep) %>
-    <% end %>
+    <%= render partial: 'cardio', locals: { cardio: @prep.target_cardios } %>
   </div>
 </div>
 <div class="row">
   <div class="medium-12 columns text-center">
     <h2>Latest Progress Photos</h2>
-    <% if @prep.photos.any? %>
-      <%= render partial: 'photos', locals: { photos: @photos } %>
-    <% else %>
-      <h5>No Photos Added Yet</h5>
-    <% end %>
   </div>
+</div>
+<div class="row">
+  <%= render partial: 'photos', locals: { photos: @photos } %>
 </div>
 <div class="row">
   <% if @prep.user == current_user %>
