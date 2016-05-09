@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  include CanCan::Ability
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,11 +16,6 @@ class User < ApplicationRecord
   before_save :set_default_avatar
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
-  def initialize(user)
-    can :manage, Prep, user_id: user.id
-    can :read, Prep, coach_id: user.id
-  end
 
   private
 
