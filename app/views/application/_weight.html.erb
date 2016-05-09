@@ -1,7 +1,15 @@
-<h4><%= weight.display_weight %></h4>
-<ul class="no-bullet">
-  <li>Start Weight: <%= start_weight.display_weight %></li>
-  <li><%= time_ago_in_words(start_weight.created_at) %> ago</li>
-  <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) %></li>
-  <li><%= link_to "Weight history", prep_bodyweights_path(@prep) %></li>
-</ul>
+<h4>Weight</h4>
+<% if weights.any? %>
+  <h4><%= weights.last.display_weight %></h4>
+  <ul class="no-bullet">
+    <li>Start Weight: <%= weights.first.display_weight %></li>
+    <li><%= time_ago_in_words(weights.first.created_at) %> ago</li>
+    <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) if @prep.user == current_user %></li>
+    <li><%= link_to "Weight history", prep_bodyweights_path(@prep) %></li>
+  </ul>
+<% else %>
+  <h6>No weigh-ins recorded yet</h6>
+  <ul class="no-bullet">
+    <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) if @prep.user == current_user %></li>
+  </ul>
+<% end %>
