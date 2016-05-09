@@ -1,0 +1,9 @@
+<div class="row">
+  <h2>New Certification</h2>
+  <%= simple_form_for [@user, @certification] do |f| %>
+    <%= f.input :title %>
+    <%= f.label "Date" %>
+    <%= f.text_field :date %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
