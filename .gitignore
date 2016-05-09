@@ -22,3 +22,6 @@
 # Ignore application configuration
 /config/application.yml
 /config/secrets.yml
+
+# Ignore all that weird shit factory girl makes
+public/system/

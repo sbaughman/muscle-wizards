@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :philosophy
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 3.megabytes
-  validates :name, :email, :age, :height, presence: true
+  validates :name, :email, :age, :height, :gender, presence: true
   validates :age, :height, numericality: true
   validates :email, uniqueness: true
   validate :email_is_valid_format
@@ -29,6 +29,7 @@ class User < ApplicationRecord
   end
 
   def password_might_not_be_completely_terrible
+    errors.add(:password, "Password must be at least eight characters") unless self.password.length >= 8
     errors.add(:password, "Password must contain at least four unique characters") unless self.password.split('').uniq.length >= 4
   end
 

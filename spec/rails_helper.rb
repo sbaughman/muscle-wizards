@@ -27,11 +27,21 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    @@user = FactoryGirl.create(:user, password: "pancakes")
+    @@user_w_preps = FactoryGirl.create(:user, password: "pancakes")
+    @@photo = URI.parse(Faker::Avatar.image)
+    @@example = "example" # All tests will have access to class vars put here!
+    FactoryGirl.create(:prep, user_id: @@user_w_preps.id)
+    FactoryGirl.create(:contest, prep_id: @@user_w_preps.preps.last)
+    Warden.test_mode!
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
