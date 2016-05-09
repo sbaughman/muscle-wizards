@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   root 'users#show'
   get 'preps/:prep_id/photos/poses/:tag' => 'photos#index', as: :pose
+  get 'preps/:prep_id/self_coach' => 'preps#self_coach', as: :selfie
 end

@@ -11,7 +11,7 @@
         <li>Bio: <%= @user.bio %></li>
         <li>Height: <%= @user.height %></li>
       </ul>
-      <%= link_to "Edit Your Profile", edit_user_path(@user), class: "expanded button" %>
+      <%= link_to "Edit Your Profile", edit_user_path(@user), class: "expanded button" if @user == current_user %>
     </div>
   </div>
   <div class="medium-8 columns">
@@ -21,7 +21,7 @@
         <li><%= render partial: 'preps/prep', locals: { prep: prep } %></li>
       </ul>
     <% end %>
-    <%= link_to "Add another prep", new_prep_path unless @user.preps %>
+    <%= link_to "Add another prep", new_prep_path %>
     <% if @user.preps.empty? %>
       <h5>You don't have any preps started yet.  <%= link_to "Start one now!", new_prep_path %></h5>
     <% end %>

@@ -6,7 +6,7 @@
     <li><%= macros.fiber %>g Fiber</li>
   <% end %>
   <li><%= macros.calories %> Calories</li>
-  <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) %></li>
-  <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) %></li>
+  <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.user == current_user %></li>
+  <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
   <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>
 </ul>

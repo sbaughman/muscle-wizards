@@ -2,6 +2,6 @@
 <ul class="no-bullet">
   <li>Start Weight: <%= start_weight.display_weight %></li>
   <li><%= time_ago_in_words(start_weight.created_at) %> ago</li>
-  <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) %></li>
+  <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) if @prep.user == current_user %></li>
   <li><%= link_to "Weight history", prep_bodyweights_path(@prep) %></li>
 </ul>

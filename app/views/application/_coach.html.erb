@@ -1,0 +1,17 @@
+<h4>Coach</h4>
+<% if @prep.coach_id == nil %>
+  <ul class="no-bullet">
+    <li><%= link_to "Find a Coach", users_path %></li>
+    <li><%= link_to "Coach Myself", selfie_path(prep_id: @prep.id) %></li>
+  </ul>
+<% elsif @prep.coach_id != @prep.user.id %>
+  <%= link_to user_path(@coach) do %>
+    <%= image_tag(@coach.avatar(:thumb)) %>
+    <h6><%= @coach.name  %></h6>
+  <% end %>
+<% else %>
+  <h4>Quote of the Day:</h4>
+  <p>
+    "I don't do this to be healthy, I do this to get big muscles."
+  </p>
+<% end %>
