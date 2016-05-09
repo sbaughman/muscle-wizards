@@ -16,18 +16,8 @@
   </div>
   <div class="medium-8 columns">
     <% if @user == current_user %>
-      <h2>Preps:</h2>
-      <% @user.preps.each do |prep| %>
-        <ul class="no-bullet">
-          <li><%= render partial: 'preps/prep', locals: { prep: prep } %></li>
-        </ul>
-      <% end %>
-      <%= link_to "Add another prep", new_prep_path %>
-      <% if @user.preps.empty? %>
-        <h5>You don't have any preps started yet.  <%= link_to "Start one now!", new_prep_path %></h5>
-      <% end %>
-    <% else %>
-      <%= render partial: "user_about" %>
+      <%= render partial: 'preps', locals: { preps: @user.preps } %>
     <% end %>
+    <%= render partial: "user_about" %>
   </div>
 </div>
