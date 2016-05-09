@@ -96,3 +96,28 @@ h1,h2,h3,h4 {
     margin-bottom: 15px;
   }
 }
+
+/* user page */
+.coached-prep {
+  padding: 0;
+  height: 110px;
+  transition: background, .2s ease-in-out;
+  a {
+    color: $white;
+    transition: color, .2s ease-in-out;
+  }
+  a:hover {
+    color: $primary-color;
+  }
+  ul {
+    padding-top: 15px;
+    display: inline-block;
+  }
+  img {
+    margin-top: 5px;
+    margin-right: -10px;
+  }
+}
+.coached-prep:hover {
+  background: rgba($white, 0.3);
+}

@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'philosophy/new'
-
-  get 'philosophy/create'
-
-  get 'philosophy/update'
-
-  get 'philosophy/edit'
-
   get 'home' => 'static_pages#home', as: :home
   get 'about' => 'static_pages#about', as: :about
 
