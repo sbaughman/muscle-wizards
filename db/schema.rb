@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509152634) do
+ActiveRecord::Schema.define(version: 20160509204232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20160509152634) do
     t.index ["prep_id"], name: "index_cardios_on_prep_id", using: :btree
   end
 
+  create_table "certifications", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "date_granted"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "contests", force: :cascade do |t|
     t.string   "title"
     t.integer  "prep_id"
@@ -63,6 +70,12 @@ ActiveRecord::Schema.define(version: 20160509152634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["prep_id"], name: "index_macros_on_prep_id", using: :btree
+  end
+
+  create_table "philosophies", force: :cascade do |t|
+    t.text     "words"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -154,9 +167,9 @@ ActiveRecord::Schema.define(version: 20160509152634) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.boolean  "coach"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "coach"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

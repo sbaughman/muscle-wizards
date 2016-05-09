@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :preps, dependent: :destroy
   has_attached_file :avatar, styles: { medium: "300X300#", thumb: "100x100#" }
   has_one :philosophy
+  has_many :certifications
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 3.megabytes
   validates :name, :email, :age, :height, :gender, presence: true

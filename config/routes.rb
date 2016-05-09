@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :certifications
   get 'philosophy/new'
 
   get 'philosophy/create'
