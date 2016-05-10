@@ -1,0 +1,10 @@
+<h2>Hello <%= coach.name %>,</h2>
+
+<p><%= prep.user.name %> has requested that you coach them for their prep, "<%= @prep.title %>."  To view the request, click the following link:</p>
+
+<%= link_to "Click to view Prep", invite_view_path(prep_id: @prep.id, id: @coach.id) %>
+
+<p>
+  Happy prepping!
+</p>
+<h4>The <span class="green">Muscle</span>Wizards Team</h4>
