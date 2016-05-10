@@ -38,6 +38,11 @@ $(document).ready(function() {
     });
   });
   $(function() {
+    $('#certification_date_granted').datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+  $(function() {
     $('#prep_contests_attributes_0_date').datepicker({
       dateFormat: 'yy-mm-dd'
     });
