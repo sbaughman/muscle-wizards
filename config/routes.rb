@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   get 'preps/:prep_id/self_coach' => 'preps#self_coach', as: :selfie
   get 'preps/:prep_id/coaches' => 'users#index', as: :coaches
   get 'preps/:prep_id/coach/:id' => 'users#show', as: :coach
+  get 'preps/:prep_id/coach_request/:id' => 'invites#new', as: :coach_request
 end
