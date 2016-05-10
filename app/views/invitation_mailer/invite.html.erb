@@ -8,7 +8,7 @@
 
     <p><%= @prep.user.name %> has requested that you coach them for their prep, "<%= @prep.title %>."  To view the request, click the following link:</p>
 
-    <%= link_to "Click to view Prep", invite_view_url(prep_id: @prep.id, id: @coach.id) %>
+    <%= link_to "Click to view Request", invite_view_url(prep_id: @prep.id, id: @coach.id) %>
 
     <p>
       Happy prepping!

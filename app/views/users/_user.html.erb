@@ -1,4 +1,4 @@
-<%= link_to user_path(user) do %>
+<%= link_to coach_path(prep_id: params[:prep_id], id: user.id) do %>
   <div class="medium-4 text-center columns">
     <%= image_tag user.avatar(:thumb) %>
     <ul class="no-bullet">

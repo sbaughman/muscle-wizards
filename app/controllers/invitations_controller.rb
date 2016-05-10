@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
-    @invitation = Invitation.find(params[:id])
+    @invitation = Invitation.find_by(user_id: params[:id])
     @invitation.destroy
     redirect_to prep_path(@prep)
   end
@@ -38,7 +38,7 @@ class InvitationsController < ApplicationController
     @prep.coach_id = @coach.id
     @prep.save
     @invitation.destroy
-    redirect_to @prep  
+    redirect_to @prep
   end
 
   private
