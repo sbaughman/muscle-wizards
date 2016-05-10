@@ -9,6 +9,10 @@
     <% if @user.philosophy %>
       <h3 class="green">Philosophy:</h3>
       <%= render partial: 'philosophies/philosophy' %>
+    <% else %>
+      <% if @user == current_user %>
+       <h6>Tell us about your training philosophy.  <%= link_to "+ Add now", new_user_philosophy_path(current_user) %></h6>
+      <% end %>
     <% end %>
 
 
