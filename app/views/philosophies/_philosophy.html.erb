@@ -1,6 +1,2 @@
-<% if @user.philosophy %>
-  <%= link_to "Edit", edit_user_philosophy_path(user_id: current_user.id, id: @user.philosophy) if @user == current_user %>
-  <%= simple_format(@user.philosophy.words) %>
-<% else %>
- <h6>Tell us about your training philosophy.  <%= link_to "Add now", new_user_philosophy_path(current_user) %></h6>
-<% end %>
+<%= simple_format(@user.philosophy.words) %>
+<%= link_to "Edit", edit_user_philosophy_path(user_id: current_user.id, id: @user.philosophy) if @user == current_user %>

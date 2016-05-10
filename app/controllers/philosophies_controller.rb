@@ -21,7 +21,7 @@ class PhilosophiesController < ApplicationController
   end
 
   def update
-    @philosophy = Photo.find(params[:id])
+    @philosophy = Philosophy.find(params[:id])
     if @philosophy.update_attributes(philosophy_params)
       flash[:success] = "Philosophy successfully updated"
       redirect_to user_path(current_user)
