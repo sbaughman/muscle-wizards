@@ -10,5 +10,4 @@ class Prep < ApplicationRecord
   has_one :invitation, dependent: :destroy
   accepts_nested_attributes_for :contests, :allow_destroy => true
   validates :title, presence: true
-
 end
