@@ -1,0 +1,6 @@
+<%= simple_form_for [current_user, @certification] do |f| %>
+  <%= f.input :name %>
+  <%= f.label "Date" %>
+  <%= f.text_field :date_granted %>
+  <%= f.button :submit %>
+<% end %>

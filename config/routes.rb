@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :philosophies, only: [:new, :create, :update, :edit]
-    resources :certifications, only: [:new, :create, :update, :edit]
+    resources :certifications, only: [:new, :create, :update, :edit, :destroy]
   end
   resources :preps do
     resources :contests
