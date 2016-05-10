@@ -13,6 +13,7 @@ class InvitationsController < ApplicationController
     @invitation.prep = @prep
     if @invitation.save
       flash[:success] = "Invitation sent!"
+      InvitationMailer.invite(@coach, @prep).deliver_later
       redirect_to prep_path(@prep)
     else
       render :new
