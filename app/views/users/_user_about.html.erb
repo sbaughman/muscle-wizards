@@ -1,8 +1,11 @@
 <div class="row">
   <div class="medium-12 columns">
     <h2>About:</h2>
-    <!-- <h3 class="green">Certifications:</h3> -->
-    <%#= render partial: 'certifications', locals {certs: @user.certifications} %>
+    <% if @user.certifications.any? %>
+      <h3 class="green">Certifications:</h3>
+      <%= render partial: 'certifications/certification', locals: {certs: @user.certifications } %>
+    <% end %>
+      <h6><%= link_to "+ Add a certification", new_user_certification_path(current_user) if @user == current_user %></h6>
     <% if @user.philosophy %>
       <h3 class="green">Philosophy:</h3>
       <%= render partial: 'philosophies/philosophy' %>
@@ -11,6 +14,7 @@
        <h6>Tell us about your training philosophy.  <%= link_to "+ Add now", new_user_philosophy_path(current_user) %></h6>
       <% end %>
     <% end %>
+
 
     <!-- <h3 class="green">Testimonials:</h3> -->
     <%#= render partial: 'testimonials', locals {testes: @user.testimonials} %>

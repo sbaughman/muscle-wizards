@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509202132) do
+ActiveRecord::Schema.define(version: 20160510133839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20160509202132) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["prep_id"], name: "index_cardios_on_prep_id", using: :btree
+  end
+
+  create_table "certifications", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "date_granted"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_certifications_on_user_id", using: :btree
   end
 
   create_table "contests", force: :cascade do |t|
@@ -162,6 +171,8 @@ ActiveRecord::Schema.define(version: 20160509202132) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "provider"
+    t.string   "uid"
     t.boolean  "coach"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -169,6 +180,7 @@ ActiveRecord::Schema.define(version: 20160509202132) do
 
   add_foreign_key "bodyweights", "preps"
   add_foreign_key "cardios", "preps"
+  add_foreign_key "certifications", "users"
   add_foreign_key "contests", "preps"
   add_foreign_key "macros", "preps"
   add_foreign_key "philosophies", "users"
