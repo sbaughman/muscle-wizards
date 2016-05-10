@@ -1,0 +1,12 @@
+<div id="user-info">
+  <%= image_tag(@user.avatar(:medium)) %>
+  <ul class="no-bullet">
+    <li>Name: <%= @user.name %></li>
+    <li>Email: <%= @user.email %></li>
+    <li>Gender: <%= @user.gender %></li>
+    <li>Age: <%= @user.age %></li>
+    <li>Bio: <%= @user.bio %></li>
+    <li>Height: <%= @user.height %></li>
+  </ul>
+  <%= link_to "Edit Your Profile", edit_user_path(@user), class: "expanded button" if @user == current_user %>
+</div>

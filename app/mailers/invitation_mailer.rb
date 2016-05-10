@@ -4,6 +4,7 @@ class InvitationMailer < ApplicationMailer
   def invite(recipient, prep)
     @coach = recipient
     @prep = prep
-    mail(to: @coach.email)
+    mail(to: @coach.email,
+         subject: 'Request for Coaching')
   end
 end

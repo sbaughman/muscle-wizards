@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about', as: :about
 
   devise_for :users
+  resources :invitations, only: [:show]
   resources :users do
     resources :philosophies, only: [:new, :create, :update, :edit]
     resources :certifications, only: [:new, :create, :update, :edit, :destroy]
@@ -26,4 +27,7 @@ Rails.application.routes.draw do
   get 'preps/:prep_id/coach/:id' => 'users#show', as: :coach
   get 'preps/:prep_id/coach_request/:id' => 'invitations#new', as: :new_coach_request
   post 'preps/:prep_id/coach_request/:id' => 'invitations#create', as: :coach_request
+  get 'preps/:prep_id/invite/:id' => 'invitations#show', as: :invite_view
+  post 'preps/:prep_id/invite/:id' => 'invitations#accept_invite', as: :accept_invite
+  delete 'preps/:prep_id/invite/:id' => 'invitations#destroy', as: :deny_invite
 end

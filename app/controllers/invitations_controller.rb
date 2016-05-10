@@ -20,10 +20,25 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def show
+    @invitation = @prep.invitation
+    @user = @prep.user
+    @coach = User.find(params[:id])
+  end
+
   def destroy
     @invitation = Invitation.find(params[:id])
     @invitation.destroy
     redirect_to prep_path(@prep)
+  end
+
+  def accept_invite
+    @invitation = @prep.invitation
+    @coach = User.find(params[:id])
+    @prep.coach_id = @coach.id
+    @prep.save
+    @invitation.destroy
+    redirect_to @prep  
   end
 
   private
