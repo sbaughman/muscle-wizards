@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @prep = Prep.find(params[:prep_id])
     if params[:id]
       @user = User.find(params[:id])
     else

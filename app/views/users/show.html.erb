@@ -11,6 +11,8 @@
     <% if @user == current_user %>
       <%= render partial: 'preps', locals: { preps: @user.preps } %>
     <% end %>
-    <%= render partial: "user_about" %>
+    <% if @user.coach %>
+      <%= render partial: "user_about" %>
+    <% end %>
   </div>
 </div>
