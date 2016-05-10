@@ -1,13 +1,15 @@
 class InvitationsController < ApplicationController
+  before_action :set_prep
 
   def new
     @invitation = Invitation.new
+    @coach = User.find(params[:id])
   end
 
   def create
     @invitation = Invitation.new(invitation_params)
-    @prep = Prep.find(params[:prep_id])
-    @invitation.user = User.find(params[:id])
+    @coach = User.find(params[:id])
+    @invitation.user = @coach
     @invitation.prep = @prep
     if @invitation.save
       flash[:success] = "Invitation sent!"
@@ -20,7 +22,7 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation = Invitation.find(params[:id])
     @invitation.destroy
-    redirect_to prep_path(@invitation.prep)
+    redirect_to prep_path(@prep)
   end
 
   private
