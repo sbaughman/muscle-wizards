@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :resources
+
   get 'home' => 'static_pages#home', as: :home
   get 'about' => 'static_pages#about', as: :about
 
   devise_for :users
   resources :invitations, only: [:show]
   resources :users do
+    resources :resources
     resources :philosophies, only: [:new, :create, :update, :edit]
     resources :certifications, only: [:new, :create, :update, :edit, :destroy]
   end
