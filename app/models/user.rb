@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :certifications, dependent: :destroy
   has_one :philosophy, dependent: :destroy
   has_many :invitations, dependent: :destroy
+  has_many :resources, dependent: :destroy
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 3.megabytes
   validates :name, :email, :age, :height, :gender, presence: true
