@@ -9,5 +9,5 @@
     <li>Height: <%= @user.height %></li>
   </ul>
   <%= link_to "Edit Your Profile", edit_user_path(@user), class: "expanded button" if @user == current_user %>
-  <%= link_to "Request Coach for Prep", new_coach_request_path(prep_id: @prep.id, id: @user.id), class: "expanded button" if params[:prep_id] && !@prep.coach_id %>
+  <%= link_to "Request Coach for Prep", new_coach_request_path(prep_id: @prep.id, id: @user.id), class: "expanded button" if params[:prep_id] && !@prep.coach_id && @user.coach %>
 </div>

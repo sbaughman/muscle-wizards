@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @prep = Prep.find(params[:prep_id]) if params[:prep_id]
+    @coached_preps = []
     if params[:id]
       @user = User.find(params[:id])
     else

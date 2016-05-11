@@ -28,7 +28,9 @@ class InvitationsController < ApplicationController
 
   def destroy
     @invitation = Invitation.find_by(user_id: params[:id])
+    @coach = User.find(@invitation.user_id)
     @invitation.destroy
+    InvitationMailer.reject(@coach, @prep).deliver_later
     redirect_to prep_path(@prep)
   end
 
