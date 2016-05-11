@@ -4,13 +4,13 @@
   </div>
 </div>
 <div class="row">
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'athlete' %>
   </div>
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'communication' %>
   </div>
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'coach' %>
   </div>
 </div>
@@ -20,13 +20,13 @@
   </div>
 </div>
 <div class="row">
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'weight', locals: { weights: @prep.bodyweights } %>
   </div>
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'macros', locals: { macros: @prep.target_macros } %>
   </div>
-  <div class="medium-4 columns text-center">
+  <div class="medium-4 columns text-center status-panel">
     <%= render partial: 'cardio', locals: { cardio: @prep.target_cardios } %>
   </div>
 </div>

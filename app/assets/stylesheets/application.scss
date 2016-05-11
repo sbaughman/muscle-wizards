@@ -18,6 +18,7 @@
 
 @import "settings";
 @import "foundation_and_overrides";
+$bluish: #59d4d9;
 
 body {
   background: url(asset_path('mw_bg.png')) no-repeat center center fixed;
@@ -30,6 +31,10 @@ h1,h2,h3,h4 {
 
 .green {
   color: $primary-color;
+}
+
+.bluish {
+  color: $bluish;
 }
 
 .button {
@@ -120,4 +125,18 @@ h1,h2,h3,h4 {
 }
 .coached-prep:hover {
   background: rgba($white, 0.3);
+}
+
+/* messages page */
+.messages {
+  margin-bottom: 20px;
+}
+
+.message {
+  margin: 10px 0;
+}
+
+/* prep page */
+.status-panel {
+  min-height: 300px;
 }

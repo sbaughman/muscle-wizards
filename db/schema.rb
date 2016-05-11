@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510143855) do
+ActiveRecord::Schema.define(version: 20160511153140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20160510143855) do
     t.index ["prep_id"], name: "index_contests_on_prep_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "invitations", force: :cascade do |t|
     t.integer  "prep_id"
     t.integer  "user_id"
@@ -82,6 +89,17 @@ ActiveRecord::Schema.define(version: 20160510143855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["prep_id"], name: "index_macros_on_prep_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "philosophies", force: :cascade do |t|
@@ -193,6 +211,8 @@ ActiveRecord::Schema.define(version: 20160510143855) do
   add_foreign_key "invitations", "preps"
   add_foreign_key "invitations", "users"
   add_foreign_key "macros", "preps"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "philosophies", "users"
   add_foreign_key "photos", "preps"
   add_foreign_key "preps", "users"
