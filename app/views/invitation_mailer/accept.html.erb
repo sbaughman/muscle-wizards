@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Hello <%= @athlete.name %>,</h2>
+
+    <p>
+      Congratulations!  <%= @coach.name %> has agreed to coach you for your prep, "<%= @prep.title %>." Click here to view your prep: <%= link_to "View Prep", prep_url(@prep) %>
+    </p>
+    <p>
+      Happy prepping!
+    </p>
+    <h4>The <span class="green">Muscle</span>Wizards Team</h4>
+  </body>
+</html>

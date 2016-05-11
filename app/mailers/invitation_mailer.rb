@@ -11,6 +11,7 @@ class InvitationMailer < ApplicationMailer
   def accept(recipient, prep)
     @athlete = recipient
     @prep = prep
+    @coach = User.find(@prep.coach_id)
     mail(to: @athlete.email,
          subject: 'Coach Request Accepted!')
   end
