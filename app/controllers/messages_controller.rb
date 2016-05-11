@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :get_conversation
+  before_action :set_prep
 
   def index
     @messages = @conversation.messages
@@ -24,7 +25,7 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      redirect_to prep_conversation_messages_path(prep_id: @prep.id, conversation_id: @conversation.id)
     end
   end
 
