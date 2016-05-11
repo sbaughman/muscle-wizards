@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :require_user
+  before_action :set_prep
 
   def create
     if Conversation.between(params[:sender_id], params[:recipient_id]).present?
@@ -7,7 +8,7 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
-    redirect_to conversation_messages_path(@conversation)
+    redirect_to prep_conversation_messages_path(prep_id: @prep.id, conversation_id: @conversation.id)
   end
 
   private

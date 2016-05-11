@@ -3,9 +3,9 @@
   <ul class="no-bullet">
     <li><%= link_to "Resources", "#" %></li>
     <% if current_user.id == @prep.user_id %>
-      <li><%= link_to "Message Coach", conversations_path(sender_id: @prep.user_id, recipient_id: @prep.coach_id), method: :post %></li>
+      <li><%= link_to "Message Coach", prep_conversations_path(prep_id: @prep.id, sender_id: @prep.user_id, recipient_id: @prep.coach_id), method: :post %></li>
     <% else %>
-      <li><%= link_to "Message Athlete", conversations_path(sender_id: @prep.coach_id, recipient_id: @prep.user_id), method: :post %></li>
+      <li><%= link_to "Message Athlete", prep_conversations_path(prep_id: @prep.id, sender_id: @prep.coach_id, recipient_id: @prep.user_id), method: :post %></li>
     <% end %>
   </ul>
 <% else %>
