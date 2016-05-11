@@ -37,6 +37,7 @@ class InvitationsController < ApplicationController
     @coach = User.find(params[:id])
     @prep.coach_id = @coach.id
     @prep.save
+    InvitationMailer.accept(@prep.user, @prep).deliver_later
     @invitation.destroy
     redirect_to @prep
   end
