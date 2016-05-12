@@ -4,6 +4,8 @@ class Resource < ApplicationRecord
   validates :title, presence: true
   validate :any_present?
   do_not_validate_attachment_file_type :upload
+  has_many :resourceries, dependent: :destroy
+  has_many :preps, through: :resourceries
 
   private
 

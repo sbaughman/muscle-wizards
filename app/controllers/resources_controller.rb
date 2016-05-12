@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  before_action :require_user
 
   def index
     @resources = current_user.resources
