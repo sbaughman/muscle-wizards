@@ -3,6 +3,8 @@ class ResourcesController < ApplicationController
 
   def index
     @resources = current_user.resources
+    @resourcery = Resourcery.new
+    @preps = Prep.where("coach_id = ?", current_user.id)
   end
 
   def show

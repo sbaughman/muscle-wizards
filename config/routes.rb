@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about', as: :about
 
   devise_for :users
+  resources :resourceries, only: [:create, :destroy]
   resources :invitations, only: [:show]
   resources :users do
     resources :resources
