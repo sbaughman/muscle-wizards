@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about', as: :about
 
   devise_for :users
+  resources :resourceries, only: [:create, :destroy]
   resources :invitations, only: [:show]
   resources :users do
     resources :resources
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :macros
     resources :target_macros
     resources :bodyweights
+    resources :resources, only: [:index, :show]
     resources :conversations, only: [:create] do
       resources :messages, only: [:new, :create, :index]
     end
