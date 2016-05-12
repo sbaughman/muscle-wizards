@@ -19,9 +19,12 @@
 //= require chartkick
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
 
-$(document).ready(function() {
+$(function(){
+  $(document).foundation();
+  $('.close').click(function(){
+    $('.alert-box').hide();
+  });
   $('.image-container').magnificPopup({
     type:'image',
     delegate: 'a',
