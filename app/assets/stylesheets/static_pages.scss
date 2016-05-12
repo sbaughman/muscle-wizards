@@ -1,3 +1,48 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* home page */
+.title {
+  margin-top: 4em;
+  margin-bottom: 3em;
+  h1 {
+    font-size: 6em;
+    font-weight: 100;
+    margin-bottom: -10px;
+  }
+  h3 {
+    font-weight: 100;
+  }
+}
+
+.sign-in {
+  padding-bottom: 10px;
+  h1 {
+    font-weight: 100;
+  }
+  h5 {
+    margin-bottom: -6px;
+  }
+  h6 {
+    margin-bottom: 12px;
+  }
+  .button {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.coach {
+  border-right: 1px solid white;
+}
+
+/* about page */
+.about {
+  ul {
+    margin-bottom: 30px;
+  }
+  li {
+    margin-bottom: 15px;
+  }
+}
