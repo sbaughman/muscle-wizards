@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home' => 'static_pages#home', as: :home
   get 'about' => 'static_pages#about', as: :about
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   resources :resourceries, only: [:create, :destroy]
   resources :invitations, only: [:show]
   resources :users do
