@@ -20,4 +20,19 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    if current_user.update(user_params)
+      flash[:success] = "Profile updated successfully!"
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :age, :gender, :height, :phone_number, :bio)
+  end
+
 end

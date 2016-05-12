@@ -10,9 +10,15 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-    <%= render partial: 'navbar' unless @no_nav %>
-  <body>
 
+  <body>
+    <%= render partial: 'navbar' unless @no_nav %>
+    <% flash.each do |key, value| %>
+      <div data-alert class="alert-box <%= key %> text-center">
+        <%= value %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
     <%= yield %>
 
   </body>

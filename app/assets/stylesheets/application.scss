@@ -25,8 +25,33 @@ body {
   background-size: cover;
 }
 
+/* flash messages */
+.alert-box {
+  padding: 15px;
+  margin-bottom: 10px;
+  a {
+    color: $white;
+  }
+}
+
+.success {
+  background: $primary-color;
+}
+
+.warning {
+  background: $warning-color;
+}
+
+.alert {
+  background: $alert-color;
+}
+
+.notice {
+  background: $primary-color;
+}
+
 h1,h2,h3,h4 {
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .green {
@@ -60,52 +85,6 @@ h1,h2,h3,h4 {
   }
 }
 
-
-/* home page */
-.title {
-  margin-top: 4em;
-  margin-bottom: 3em;
-  h1 {
-    font-size: 6em;
-    font-weight: 100;
-    margin-bottom: -10px;
-  }
-  h3 {
-    font-weight: 100;
-  }
-}
-
-.sign-in {
-  padding-bottom: 10px;
-  h1 {
-    font-weight: 100;
-  }
-  h5 {
-    margin-bottom: -6px;
-  }
-  h6 {
-    margin-bottom: 12px;
-  }
-  .button {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-.coach {
-  border-right: 1px solid white;
-}
-
-/* about page */
-.about {
-  ul {
-    margin-bottom: 30px;
-  }
-  li {
-    margin-bottom: 15px;
-  }
-}
-
 /* user page */
 .coached-prep {
   padding: 0;
@@ -130,14 +109,8 @@ h1,h2,h3,h4 {
 .coached-prep:hover {
   background: rgba($white, 0.3);
 }
-
-/* messages page */
-.messages {
-  margin-bottom: 20px;
-}
-
-.message {
-  margin: 10px 0;
+#profile-pic {
+  width: 100%;
 }
 
 /* prep page */
@@ -150,6 +123,7 @@ h1,h2,h3,h4 {
   margin-top: 1vw;
 }
 
+/* resources page */
 #share-button {
   margin-top: 24px;
 }

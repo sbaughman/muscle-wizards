@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Edit Profile</h2>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :name %>
+      <%= f.input :age, collection: 18..80, prompt: "Select your age" %>
+      <%= f.input :gender, collection: ['M', 'F'], prompt: "Select your gender" %>
+      <%= f.input :height, label: "Height (inches)", collection: 36..85, prompt: "Select your height" %>
+      <%= f.input :phone_number, placeholder: '555-555-5555' %>
+      <%= f.input :bio, placeholder: "Tell us about yourself" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

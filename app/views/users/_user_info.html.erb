@@ -1,14 +1,14 @@
 <div id="user-info">
-  <%= image_tag(@user.avatar(:medium)) %>
+  <%= image_tag(@user.avatar(:medium), id: "profile-pic") %>
   <ul class="no-bullet">
     <li>Name: <%= @user.name %></li>
     <li>Email: <%= @user.email %></li>
     <li>Gender: <%= @user.gender %></li>
     <li>Age: <%= @user.age %></li>
-    <li>Bio: <%= @user.bio %></li>
     <li>Height: <%= @user.height %></li>
+    <li>Bio: <%= @user.bio %></li>
   </ul>
   <%= link_to "Edit Your Profile", edit_user_path(@user), class: "expanded button" if @user == current_user %>
-  <%= link_to "Your Resources", user_resources_path(@user), class: "expanded button" if @user == current_user %>
+  <%= link_to "Your Resources", user_resources_path(@user), class: "expanded button" if @user == current_user && @user.coach %>
   <%= link_to "Request Coach for Prep", new_coach_request_path(prep_id: @prep.id, id: @user.id), class: "expanded button" if params[:prep_id] && !@prep.coach_id && @user.coach %>
 </div>
