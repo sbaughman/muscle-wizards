@@ -5,8 +5,13 @@
     <ul class="no-bullet">
       <li><%= simple_format(@resource.body) %><li>
       <li><%= link_to "Link to Resource", @resource.url if @resource.url %></li>
-      <li><%= link_to "Link to Attached File", @resource.upload.url, target: "_blank" if @resource.upload %></li>
+      <li><%= link_to "Link to Attached File", @resource.upload.url, target: "_blank" if @resource.upload_file_name %></li>
     </ul>
-    <%= link_to "Back to Resources", user_resources_path(current_user), class: "button" %>
+    <% if @prep %>
+      <%= link_to "Back to Resources", prep_resources_path(@prep), class: "button" %>
+      <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
+    <% else %>
+      <%= link_to "Back to Resources", user_resources_path(current_user), class: "button" %>
+    <% end %>
   </div>
 </div>

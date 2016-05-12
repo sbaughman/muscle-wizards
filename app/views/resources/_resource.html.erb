@@ -1,22 +1,29 @@
 <div class="row resource">
-  <div class="medium-7 columns">
+  <div class="medium-6 columns">
     <ul class="no-bullet">
-      <li><%= link_to resource.title, user_resource_path(user_id: resource.user.id, id: resource.id) %></li>
+      <% if @prep %>
+        <li><%= link_to resource.title, prep_resource_path(@prep, resource) %></li>
+      <% else %>
+        <li><%= link_to resource.title, user_resource_path(user_id: resource.user.id, id: resource.id) %></li>
+      <% end %>
       <li>Added on <%= resource.created_at.strftime("%D") %></li>
-      <li><%= link_to "Edit", edit_user_resource_path(user_id: current_user.id, id: resource.id), class: "underline" %> <%= link_to "Delete", user_resource_path(user_id: current_user.id, id: resource.id), class: "underline", method: :delete %></li>
+      <% if resource.user == current_user %>
+        <li>
+          <%= link_to "Edit", edit_user_resource_path(user_id: current_user.id, id: resource.id), class: "underline" %>
+          <%= link_to "Delete", user_resource_path(user_id: current_user.id, id: resource.id), class: "underline", method: :delete %>
+        </li>
+      <% end %>
     </ul>
   </div>
-  <div class="medium-5 columns">
+  <div class="medium-6 columns">
     <% if resource.user == current_user %>
       <%= simple_form_for @resourcery do |f| %>
-      <div class="row">
-        <div class="small-8 columns">
-          <%= f.input :prep_id, label: "Share with...", collection: @preps, label_method: lambda { |prep| prep.user.name + " - " + prep.title } %>
-          <%= f.hidden_field :resource_id, :value => resource.id %>
-        </div>
-        <div class="small-4 columns">
-          <%= f.button :submit, value: "Share", id: "share-button" %>
-        </div>
+      <div class="small-8 columns">
+        <%= f.input :prep_id, label: "Share with...", collection: @preps, label_method: lambda { |prep| prep.user.name + " - " + prep.title } %>
+        <%= f.hidden_field :resource_id, :value => resource.id %>
+      </div>
+      <div class="small-4 columns">
+        <%= f.button :submit, value: "Share", id: "share-button", class: "expanded button" %>
       </div>
       <% end %>
     <% end %>

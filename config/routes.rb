@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :macros
     resources :target_macros
     resources :bodyweights
+    resources :resources, only: [:index, :show]
     resources :conversations, only: [:create] do
       resources :messages, only: [:new, :create, :index]
     end

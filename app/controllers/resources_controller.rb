@@ -2,12 +2,13 @@ class ResourcesController < ApplicationController
   before_action :require_user
 
   def index
-    @resources = current_user.resources
+    set_scope
     @resourcery = Resourcery.new
     @preps = Prep.where("coach_id = ?", current_user.id)
   end
 
   def show
+    set_prep if params[:prep_id]
     @resource = Resource.find(params[:id])
   end
 
@@ -45,4 +46,13 @@ class ResourcesController < ApplicationController
   def resource_params
     params.require(:resource).permit(:title, :body, :url, :upload)
   end
+
+  def set_scope
+    if params[:prep_id]
+      @resources = set_prep.resources
+    else
+      @resources = current_user.resources
+    end
+  end
+
 end

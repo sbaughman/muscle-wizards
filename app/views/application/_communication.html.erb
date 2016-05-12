@@ -1,7 +1,7 @@
 <% unless @prep.coach_id == current_user.id && @prep.user_id == @prep.coach_id %>
   <h4>Communication</h4>
   <ul class="no-bullet">
-    <li><%= link_to "Resources", "#" %></li>
+    <li><%= link_to "Resources", prep_resources_path(@prep) %></li>
     <% if current_user.id == @prep.user_id %>
       <li><%= link_to "Message Coach", prep_conversations_path(prep_id: @prep.id, sender_id: @prep.user_id, recipient_id: @prep.coach_id), method: :post %></li>
     <% else %>
