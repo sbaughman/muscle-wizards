@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
   end
 
   def prep_includes_user?(user)
-    preps = current_user.preps
-    coached_athletes = preps.map { |prep| User.find(user.id) }
+    preps = Prep.where("coach_id = ?", current_user.id)
+    coached_athletes = preps.map { |prep| prep.athlete }
     coached_athletes.include?(user)
   end
 

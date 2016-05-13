@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       if coach_or_coached_athlete?(user)
         @user = user
+        @coached_preps = Prep.where('coach_id = ? AND user_id != ?', current_user.id, current_user.id).order(updated_at: :desc) if current_user == user
       else
         flash[:alert] = "You don't have permission to view that"
         redirect_back(fallback_location: root_path)
