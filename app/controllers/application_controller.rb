@@ -19,6 +19,16 @@ class ApplicationController < ActionController::Base
     user == user1 ? user2 : user1
   end
 
+  def coach_or_coached_athlete?(user)
+    user.coach || prep_includes_user?(user)
+  end
+
+  def prep_includes_user?(user)
+    preps = current_user.preps
+    coached_athletes = preps.map { |prep| User.find(user.id) }
+    coached_athletes.include?(user)
+  end
+
   protected
 
   def configure_permitted_parameters
