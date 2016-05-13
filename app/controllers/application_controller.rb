@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def other_user(user)
-    user1 = @prep.user
+    user1 = @prep.athlete
     user2 = User.find(@prep.coach_id)
     user == user1 ? user2 : user1
   end

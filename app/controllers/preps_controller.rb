@@ -12,7 +12,7 @@ class PrepsController < ApplicationController
 
   def create
     @prep = Prep.new(prep_params)
-    @prep.user = current_user
+    @prep.athlete = current_user
     if @prep.save
       flash[:success] = "New Contest Prep started. Good luck!"
       redirect_to prep_path(@prep)

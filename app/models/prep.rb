@@ -1,5 +1,6 @@
 class Prep < ApplicationRecord
-  belongs_to :user
+  belongs_to :athlete, :foreign_key => :user_id, class_name: 'User'
+  belongs_to :coach, :foreign_key => :coach_id, class_name: 'User'
   has_many :bodyweights, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :cardios, dependent: :destroy

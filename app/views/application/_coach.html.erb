@@ -10,7 +10,7 @@
     <li>You have a pending coach request.</li>
     <li><%= link_to "Delete Coach Request", deny_invite_path(prep_id: @prep.id, id: @prep.invitation.user_id), method: :delete %></li>
   </ul>
-<% elsif @prep.coach_id != @prep.user.id %>
+<% elsif @prep.coach_id != @prep.athlete.id %>
   <h4>Coach</h4>
   <%= link_to user_path(@coach) do %>
     <%= image_tag(@coach.avatar(:thumb)) %>
