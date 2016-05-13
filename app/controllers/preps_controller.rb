@@ -1,10 +1,6 @@
 class PrepsController < ApplicationController
   before_action :require_user
 
-  def index
-    @preps = Prep.all
-  end
-
   def new
     @prep = Prep.new
     @prep.contests.build
@@ -23,13 +19,15 @@ class PrepsController < ApplicationController
 
   def show
     @prep = Prep.find(params[:id])
-    @coach = User.find(@prep.coach_id) if @prep.coach_id
-    @photos = @prep.photos.order(created_at: :desc).limit(3)
+    if user_owns_prep
+      @coach = @prep.coach
+      @photos = @prep.photos.order(created_at: :desc).limit(3)
+    end
   end
 
   def self_coach
     @prep = Prep.find(params[:prep_id])
-    @prep.coach_id = @prep.user_id
+    @prep.coach_id = @prep.user_id if user_owns_prep
     @prep.save
     redirect_to prep_path(@prep)
   end

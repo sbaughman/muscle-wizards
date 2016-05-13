@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
     coached_athletes.include?(user)
   end
 
+  def user_owns_prep
+    unless current_user == @prep.athlete || current_user == @prep.coach
+      flash[:alert] = "You are not authorized to do that"
+      redirect_back(fallback_location: root_path)
+    end
+    true
+  end
+
   protected
 
   def configure_permitted_parameters
