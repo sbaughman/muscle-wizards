@@ -4,14 +4,14 @@ class MessagesController < ApplicationController
   before_action :set_prep
 
   def index
-    @messages = @conversation.messages
+    @messages = @conversation.messages.order(created_at: :asc)
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]
     end
     if params[:m]
       @over_ten = false
-      @messages = @conversation.messages
+      @messages = @conversation.messages.order(created_at: :asc)
     end
     if @messages.last && @messages.last.user_id != current_user.id
       others_messages = @conversation.messages.where("user_id = ?", other_user(current_user))

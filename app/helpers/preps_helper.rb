@@ -6,9 +6,12 @@ module PrepsHelper
   end
 
   def new_message_count
-    messages = Conversation.between(@prep.user_id, @prep.coach_id).first.messages
-    new_messages = messages.where("user_id = ? AND read = ?", other_user(current_user), false).count
-    new_messages > 0 ? "(#{new_messages})" : ""
+    conversation = Conversation.between(@prep.user_id, @prep.coach_id).first
+    if conversation
+      messages = conversation.messages
+      new_messages = messages.where("user_id = ? AND read = ?", other_user(current_user), false).count
+      new_messages > 0 ? "(#{new_messages})" : ""
+    end
   end
 
 end
