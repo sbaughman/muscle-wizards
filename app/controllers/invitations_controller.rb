@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :set_prep
+  before_action :user_owns_prep
 
   def new
     @invitation = Invitation.new
@@ -22,7 +23,7 @@ class InvitationsController < ApplicationController
 
   def show
     @invitation = @prep.invitation
-    @user = @prep.user
+    @user = @prep.athlete
     @coach = User.find(params[:id])
   end
 
@@ -39,7 +40,7 @@ class InvitationsController < ApplicationController
     @coach = User.find(params[:id])
     @prep.coach_id = @coach.id
     @prep.save
-    InvitationMailer.accept(@prep.user, @prep).deliver_later
+    InvitationMailer.accept(@prep.athlete, @prep).deliver_later
     @invitation.destroy
     redirect_to @prep
   end

@@ -6,7 +6,7 @@ class ResourceriesController < ApplicationController
     if @resourcery.save
       flash[:success] = "Resource successfully shared"
     else
-      flash[:success] = "An error occurred"
+      flash[:alert] = "Resource already shared"
     end
     redirect_back(fallback_location: root_path)
   end

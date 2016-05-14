@@ -1,6 +1,7 @@
 class ContestsController < ApplicationController
   before_action :require_user
   before_action :set_prep
+  before_action :user_owns_prep
 
   def index
     @contests = @prep.contests.order(created_at: :desc)

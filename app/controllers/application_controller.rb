@@ -14,9 +14,27 @@ class ApplicationController < ActionController::Base
   end
 
   def other_user(user)
-    user1 = @prep.user
+    user1 = @prep.athlete
     user2 = User.find(@prep.coach_id)
     user == user1 ? user2 : user1
+  end
+
+  def coach_or_coached_athlete?(user)
+    user.coach || prep_includes_user?(user)
+  end
+
+  def prep_includes_user?(user)
+    preps = Prep.where("coach_id = ?", current_user.id)
+    coached_athletes = preps.map { |prep| prep.athlete }
+    coached_athletes.include?(user)
+  end
+
+  def user_owns_prep
+    unless current_user == @prep.athlete || current_user == @prep.coach
+      flash[:alert] = "You are not authorized to do that"
+      redirect_back(fallback_location: root_path)
+    end
+    true
   end
 
   protected

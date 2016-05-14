@@ -1,6 +1,7 @@
 class ConversationsController < ApplicationController
   before_action :require_user
   before_action :set_prep
+  before_action :user_owns_prep
 
   def create
     if Conversation.between(params[:sender_id], params[:recipient_id]).present?
