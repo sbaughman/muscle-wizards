@@ -27,4 +27,14 @@ module ApplicationHelper
     nearest_contest.date
   end
 
+  def time_out(prep)
+    contest = prep.contests.order(:date).first
+    time = contest.date - Time.now
+    render_time(time) + " out from " + contest.title
+  end
+
+  def prep_thumb(prep)
+    prep.photos.any? ? prep.photos.last.image(:thumb) : prep.athlete.avatar(:thumb)
+  end
+
 end

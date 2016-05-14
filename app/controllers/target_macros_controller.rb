@@ -1,6 +1,7 @@
 class TargetMacrosController < ApplicationController
   before_action :require_user
   before_action :set_prep
+  before_action :user_owns_prep
 
   def index
     @target_macros = @prep.target_macros.order(created_at: :desc)

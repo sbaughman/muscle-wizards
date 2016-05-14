@@ -1,1 +1,14 @@
-<%= link_to prep.title, prep_path(prep) %>
+<div class="row coached-prep">
+  <%= link_to prep_path(prep) do %>
+    <div class="small-9 columns">
+      <ul class="no-bullet">
+        <li>Athlete: <%= prep.athlete.name %></li>
+        <li><%= time_out(prep) %></li>
+        <li>Last updated: <%= prep.updated_at.strftime('%D') %></li>
+      </ul>
+    </div>
+    <div class="small-3 columns text-right">
+      <%= image_tag prep_thumb(prep) %>
+    </div>
+  <% end %>
+</div>
