@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_user
   before_action :get_conversation
   before_action :set_prep
 
@@ -13,7 +14,8 @@ class MessagesController < ApplicationController
       @messages = @conversation.messages
     end
     if @messages.last && @messages.last.user_id != current_user.id
-      @messages.last.read = true
+      others_messages = @conversation.messages.where("user_id = ?", other_user(current_user))
+      others_messages.update_all(read: true)
     end
     @message = @conversation.messages.new
   end

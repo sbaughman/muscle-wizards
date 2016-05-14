@@ -8,8 +8,12 @@ class ResourcesController < ApplicationController
   end
 
   def show
-    set_prep if params[:prep_id]
     @resource = Resource.find(params[:id])
+    if params[:prep_id]
+      set_prep
+      @resourcery = @resource.resourceries.find_by(prep_id: @prep.id)
+      @resourcery.update(read: true)
+    end
   end
 
   def new
