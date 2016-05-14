@@ -112,18 +112,30 @@ h1,h2,h3,h4 {
 #profile-pic {
   width: 100%;
 }
+#back-user-butt {
+  margin-top: 1vw;
+}
 
 /* prep page */
 .status-panel {
   min-height: 300px;
 }
 
-/* user show page */
-#back-user-butt {
-  margin-top: 1vw;
-}
-
 /* resources page */
 #share-button {
-  margin-top: 24px;
+  margin-top: 26px;
+}
+.resource {
+  transition: background, .2s ease-in-out;
+  ul {
+    margin-top: 10px;
+  }
+}
+.resource:hover {
+  background: rgba($white, 0.3);
+}
+
+/* resourceries */
+#select_all {
+  color: $primary-color;
 }

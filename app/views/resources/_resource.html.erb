@@ -1,5 +1,5 @@
 <div class="row resource">
-  <div class="medium-6 columns">
+  <div class="small-6 columns">
     <ul class="no-bullet">
       <% if @prep %>
         <li><%= link_to resource.title, prep_resource_path(@prep, resource) %></li>
@@ -15,9 +15,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="medium-6 columns">
-    <% if resource.user == current_user %>
-      <%= render partial: 'resourceries/form', locals: { resource: resource } %>
-    <% end %>
+  <div class="small-6 columns text-right">
+    <%= link_to "Share Resource", new_resourcery_path(resource: resource), class: "button", id: "share-button" %>
   </div>
 </div>
