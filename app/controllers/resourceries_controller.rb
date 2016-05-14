@@ -6,7 +6,7 @@ class ResourceriesController < ApplicationController
     if @resourcery.save
       flash[:success] = "Resource successfully shared"
     else
-      flash[:alert] = "Resource already shared"
+      flash[:alert] = "Resource already shared with #{Prep.find(params[:resourcery][:prep_id]).athlete.name}"
     end
     redirect_back(fallback_location: root_path)
   end
