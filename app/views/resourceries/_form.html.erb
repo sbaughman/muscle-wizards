@@ -1,0 +1,9 @@
+<%= simple_form_for @resourcery do |f| %>
+  <div class="small-8 columns">
+    <%= f.input :prep_id, label: "Share with...", collection: @preps, label_method: lambda { |prep| prep.athlete.name + " - " + prep.title } %>
+    <%= f.hidden_field :resource_id, :value => resource.id %>
+  </div>
+  <div class="small-4 columns">
+    <%= f.button :submit, value: "Share", id: "share-button", class: "expanded button" %>
+  </div>
+<% end %>
