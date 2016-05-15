@@ -1,13 +1,19 @@
 <div class="row resource">
-  <div class="medium-6 columns">
+  <div class="small-6 columns">
     <ul class="no-bullet">
       <% if @prep %>
-        <li><%= link_to resource.title, prep_resource_path(@prep, resource) %></li>
+        <% if resource_shared?(resource) %>
+          <li><%= link_to (resource.title + unread_flag(resource)).html_safe, prep_resource_path(@prep, resource) %></li>
+          <li>Shared on: <%= resource_shared_date(resource) %></li>
+        <% else %>
+          <li><%= link_to resource.title, prep_resource_path(@prep, resource) %></li>
+          <li>Created at: <%= resource.created_at.strftime("%D") %></li>
+        <% end %>
       <% else %>
         <li><%= link_to resource.title, user_resource_path(user_id: resource.user.id, id: resource.id) %></li>
       <% end %>
-      <li>Added on <%= resource.created_at.strftime("%D") %></li>
-      <% if resource.user == current_user %>
+      <% if resource.user == current_user && !@prep %>
+        <li>Created at: <%= resource.created_at.strftime("%D") %></li>
         <li>
           <%= link_to "Edit", edit_user_resource_path(user_id: current_user.id, id: resource.id), class: "underline" %>
           <%= link_to "Delete", user_resource_path(user_id: current_user.id, id: resource.id), class: "underline", method: :delete %>
@@ -15,17 +21,9 @@
       <% end %>
     </ul>
   </div>
-  <div class="medium-6 columns">
+  <div class="small-6 columns text-right">
     <% if resource.user == current_user %>
-      <%= simple_form_for @resourcery do |f| %>
-      <div class="small-8 columns">
-        <%= f.input :prep_id, label: "Share with...", collection: @preps, label_method: lambda { |prep| prep.athlete.name + " - " + prep.title } %>
-        <%= f.hidden_field :resource_id, :value => resource.id %>
-      </div>
-      <div class="small-4 columns">
-        <%= f.button :submit, value: "Share", id: "share-button", class: "expanded button" %>
-      </div>
-      <% end %>
+      <%= render partial: 'resources/sharing_options', locals: { resource: resource } %>
     <% end %>
   </div>
 </div>

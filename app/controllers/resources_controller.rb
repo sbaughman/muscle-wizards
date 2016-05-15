@@ -2,17 +2,16 @@ class ResourcesController < ApplicationController
   before_action :require_user
 
   def index
-    set_scope
-    @resourcery = Resourcery.new
-    @preps = Prep.where("coach_id = ?", current_user.id)
+    @resources = current_user.resources
+    @preps = Prep.where(coach_id: current_user.id)
   end
 
   def show
     @resource = Resource.find(params[:id])
     if params[:prep_id]
       set_prep
-      @resourcery = @resource.resourceries.find_by(prep_id: @prep.id)
-      @resourcery.update(read: true)
+      @resourcery = @resource.resourceries.where(prep_id: @prep.id)
+      @resourcery.update(read: true) if current_user == @prep.athlete
     end
   end
 
@@ -24,7 +23,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
     @resource.user = current_user
     if @resource.save
-      flash[:success] = "You have made resources great job!"
+      flash[:success] = "New resource saved!"
       redirect_to user_resources_path(current_user)
     else
       render :new
@@ -35,10 +34,15 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
   end
 
-  def jam
-  end
 
   def update
+    @resource = Resource.find(params[:id])
+    if @resource.update_attributes(resource_params)
+      flash[:success] = "Resource updated successfully"
+      redirect_to user_resources_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -47,16 +51,10 @@ class ResourcesController < ApplicationController
     redirect_to user_resources_path(current_user)
   end
 
+  private
+
   def resource_params
     params.require(:resource).permit(:title, :body, :url, :upload)
-  end
-
-  def set_scope
-    if params[:prep_id]
-      @resources = set_prep.resources
-    else
-      @resources = current_user.resources
-    end
   end
 
 end

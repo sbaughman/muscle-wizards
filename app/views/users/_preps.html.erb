@@ -2,7 +2,7 @@
 <% if @coached_preps.any? %>
   <h3 class="green">Coached Preps:</h3>
   <% @coached_preps.each do |prep| %>
-    <%= render partial: 'preps/coached_prep', locals: { prep: prep } %>
+    <%= render partial: 'preps/prep', locals: { prep: prep } %>
   <% end %>
   <h3 class="green">Personal Preps:</h3>
 <% end %>
@@ -12,7 +12,7 @@
       <li><%= render partial: 'preps/prep', locals: { prep: prep } %></li>
     </ul>
   <% end %>
-  <%= link_to "Add another prep", new_prep_path %>
+  <%= link_to "+ Add a new prep", new_prep_path %>
 <% else %>
   <h6>You don't have any preps started yet.  <%= link_to "Start one now!", new_prep_path %></h6>
 <% end %>

@@ -1,0 +1,10 @@
+<%= simple_form_for @resourcery do |f| %>
+  <%= f.input :prep_id,
+              label: false,
+              collection: @preps,
+              label_method: lambda { |prep| prep.athlete.name + " - " + prep.title },
+              as: :check_boxes,
+              input_html: { multiple: true } %>
+  <%= f.hidden_field :resource_id, :value => resource.id %>
+  <%= f.button :submit, value: "Share Resource", id: "share-button", class: "button" %>
+<% end %>
