@@ -36,6 +36,13 @@ class ResourcesController < ApplicationController
 
 
   def update
+    @resource = Resource.find(params[:id])
+    if @resource.update_attributes(resource_params)
+      flash[:success] = "Resource updated successfully"
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
