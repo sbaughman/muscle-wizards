@@ -1,17 +1,47 @@
-<h1>Bodyweight History:</h1>
-
-<%= link_to "Add a new weigh-in", new_prep_bodyweight_path(@prep) %>
-
-<div class="small-12 medium-8 medium-offset-2">
-  <div class="chart">
-    <h3 class="text-center">Bodyweight</h3>
-    <%= line_chart @weights.map { |weight| [weight.created_at.strftime("%d %B %Y"), weight.display_weight]}, min: @weights.minimum(:weight)/10-1, max: @weights.maximum(:weight)/10+1, ytitle: "Bodyweight (lbs)", xtitle: "Date" %>
+<div class="row">
+  <div class="small-12 columns">
+    <h2 class="text-center">Bodyweight History</h2>
   </div>
 </div>
 
 
-<ul>
-  <%= render @weights %>
-</ul>
 
-<%= link_to "Back to Prep Home", prep_path(@prep) %>
+
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 columns">
+    <div class="chart">
+      <h3 class="text-center">Bodyweight</h3>
+      <%= line_chart @weights.map { |weight| [weight.created_at.strftime("%d %B %Y"), weight.display_weight]}, min: @weights.minimum(:weight)/10-1, max: @weights.maximum(:weight)/10+1, ytitle: "Bodyweight (lbs)", xtitle: "Date" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-6 medium-4 medium-offset-2 columns">
+    <%= link_to "Log new weight", new_prep_bodyweight_path(@prep), class: "expanded button" %>
+  </div>
+  <div class="small-6 medium-4 columns end">
+    <%= link_to "Back to Prep Home", prep_path(@prep), class: "expanded button" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 columns text-center">
+    <div class="data-table text-center">
+      <table id="target-cardio-table">
+        <h3>Bodyweight Log</h3>
+        <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+        <tr>
+          <th>Date</th>
+          <th>Weight (lbs)</th>
+        </tr>
+          <% @chart_weights.each do |bw| %>
+            <tr>
+              <td><%= bw.created_at.strftime('%D') %></td>
+              <td><%= bw.display_weight %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>
