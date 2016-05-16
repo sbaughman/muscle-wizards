@@ -1,11 +1,14 @@
-<%= line_chart [
-  {
-    name: "Calories",
-    data: @macros.map { |macro| [macro.created_at.strftime('%D'), macro.calories] }
-  },
-  {
-    name: "Target Calories",
-    data: @target_macros.map { |macro| [macro.created_at.strftime('%D'), macro.calories] }
-  }
-  ],
-  ytitle: "kCal", min: @minmax[0], max: @minmax[1] %>
+<div class="chart">
+  <h3 class="text-center">Calories</h3>
+  <%= line_chart [
+    {
+      name: "Calories",
+      data: @macros.map { |macro| [macro.created_at.strftime('%D'), macro.calories] }
+    },
+    {
+      name: "Target Cal",
+      data: @target_macros.map { |macro| [macro.created_at.strftime('%D'), macro.calories] }
+    }
+    ],
+    ytitle: "kCal", min: @minmax[0], max: @minmax[1] %>
+</div>

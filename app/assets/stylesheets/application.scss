@@ -25,12 +25,17 @@ body {
   background-size: cover;
 }
 
+.chart {
+  border-radius: 5px;
+  background-color: rgba($dark-gray,.7);
+  padding-top: 10px;
+}
+
 .highcharts-container {
   border-radius: 5px;
   rect {
-    fill: rgba($dark-gray,.7);
+    fill: rgba($dark-gray,.0);
   }
-
 }
 
 /* flash messages */
