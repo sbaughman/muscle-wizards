@@ -5,7 +5,23 @@ class MacrosController < ApplicationController
 
   def index
     @macros = @prep.macros.order(created_at: :desc)
+    if @macros.length > 10
+      @over_ten = true
+      @macros = @macros[-10..-1]
+    end
+    if params[:m]
+      @over_ten = false
+      @macros = @prep.macros.order(created_at: :desc)
+    end
     @target_macros = @prep.target_macros.order(created_at: :desc)
+    if @target_macros.length > 10
+      @over_ten = true
+      @target_macros = @target_macros[-10..-1]
+    end
+    if params[:tm]
+      @over_ten = false
+      @target_macros = @prep.target_macros.order(created_at: :desc)
+    end
     @minmax = (@macros.map { |macro| macro.calories } + @target_macros.map { |macro| macro.calories }).minmax
   end
 
