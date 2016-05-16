@@ -25,6 +25,14 @@ body {
   background-size: cover;
 }
 
+.highcharts-container {
+  border-radius: 5px;
+  rect {
+    fill: rgba($dark-gray,.7);
+  }
+
+}
+
 /* flash messages */
 .alert-box {
   padding: 15px;
