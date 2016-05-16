@@ -5,7 +5,23 @@ class CardiosController < ApplicationController
 
     def index
       @cardios = @prep.cardios.order(created_at: :desc)
-      @target_cardios = @prep.target_cardios.order(created_at: :desc)
+      if @cardios.length > 10
+        @over_ten = true
+        @chart_cardios = @cardios[-10..-1]
+      end
+      if params[:m]
+        @over_ten = false
+        @chart_cardios = @prep.cardios.order(created_at: :desc)
+      end
+    @target_cardios = @prep.target_cardios.order(created_at: :desc)
+      if @target_cardios.length > 10
+        @over_ten = true
+        @chart_target_cardios = @target_cardios[-10..-1]
+      end
+      if params[:tm]
+        @over_ten = false
+        @chart_target_cardios = @prep.target_cardios.order(created_at: :desc)
+      end
       @minmax = (@cardios.map { |cardio| cardio.duration} + @target_cardios.map { |cardio| cardio.duration }).minmax
     end
 

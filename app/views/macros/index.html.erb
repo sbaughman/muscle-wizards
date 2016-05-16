@@ -16,7 +16,7 @@
 
 <div class="row">
   <div class="small-6 columns">
-    <%= link_to  "Add new macros", new_prep_macro_path(@prep), class: 'expanded button' %>
+    <%= link_to  "Log new macros", new_prep_macro_path(@prep), class: 'expanded button' %>
   </div>
   <div class="small-6 columns">
     <%= link_to "Back to Prep Home", prep_path(@prep), class: "expanded button" %>
@@ -26,8 +26,8 @@
 <div class="row">
   <div class="small-12 columns">
     <div class="data-table text-center">
-      <table id="macros-table">
-        <h3>Target Macros</h3>
+      <table id="target-macros-table">
+        <h3>Target Macro Log</h3>
         <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
         <tr>
           <th>Date</th>
@@ -35,7 +35,7 @@
           <th>Carbs(g)</th>
           <th>Fat(g)</th>
         </tr>
-          <% @target_macros.each do |tm| %>
+          <% @chart_target_macros.each do |tm| %>
             <tr>
               <td><%= tm.created_at.strftime('%D') %></td>
               <td><%= tm.protein %></td>
@@ -47,7 +47,7 @@
     </div>
     <div class="data-table text-center">
       <table id="macros-table">
-        <h3>Macros</h3>
+        <h3>Macro Log</h3>
         <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
         <tr>
           <th>Date</th>
@@ -55,7 +55,7 @@
           <th>Carbs(g)</th>
           <th>Fat(g)</th>
         </tr>
-          <% @macros.each do |m| %>
+          <% @chart_macros.each do |m| %>
             <tr>
               <td><%= m.created_at.strftime('%D') %></td>
               <td><%= m.protein %></td>

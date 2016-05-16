@@ -1,13 +1,71 @@
 <div class="row">
-  <%= link_to "Add new cardio", new_prep_cardio_path(@prep), class: "button" %>
+  <div class="small-12 columns">
+    <h2 class="text-center">Cardio History</h2>
+  </div>
+</div>
 
-  <%= link_to "Back to Prep Home", prep_path(@prep), class: "button" %>
+<div class="row">
   <div class="small-12 medium-8 medium-offset-2 columns">
     <%= render partial: 'cardio_chart' %>
   </div>
+</div>
+
+<div class="row">
+    <div class="small-6 medium-4 medium-offset-2 columns">
+      <%= link_to "Log new cardio", new_prep_cardio_path(@prep), class: "expanded button" %>
+    </div>
+    <div class="small-6 medium-4 columns end">
+      <%= link_to "Back to Prep Home", prep_path(@prep), class: "expanded button" %>
+    </div>
+</div>
 
 
-  <ul>
-    <%= render @cardios %>
-  </ul>
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 columns text-center">
+    <div class="data-table text-center">
+      <table id="target-cardio-table">
+        <h3>Target Cardio Log</h3>
+        <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
+        <tr>
+          <th>Date</th>
+          <th>Activity</th>
+          <th>Duration (min)</th>
+          <th>Style</th>
+        </tr>
+          <% @chart_target_cardios.each do |tc| %>
+            <tr>
+              <td><%= tc.created_at.strftime('%D') %></td>
+              <td><%= tc.activity %></td>
+              <td><%= tc.duration %></td>
+              <td><%= tc.style %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-8 medium-offset-2 columns text-center">
+    <div class="data-table text-center">
+      <table id="cardio-table">
+        <h3>Cardio Log</h3>
+        <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+        <tr>
+          <th>Date</th>
+          <th>Activity</th>
+          <th>Duration (min)</th>
+          <th>Style</th>
+        </tr>
+          <% @chart_cardios.each do |c| %>
+            <tr>
+              <td><%= c.created_at.strftime('%D') %></td>
+              <td><%= c.activity %></td>
+              <td><%= c.duration %></td>
+              <td><%= c.style %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
 </div>
