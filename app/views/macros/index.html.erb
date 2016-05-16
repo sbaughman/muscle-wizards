@@ -11,6 +11,27 @@
   </div>
 </div>
 
-<ul>
-  <%= render @macros %>
-</ul>
+<div class="row">
+  <div class="small-12 columns">
+    <div class="data-table">
+      <table id="macros-table">
+        <h3 class="text-center">Target Macros</h3>
+        <tr>
+          <th>Date</th>
+          <th>Protein(g)</th>
+          <th>Carbs(g)</th>
+          <th>Fat(g)</th>
+        </tr>
+          <% @target_macros.each do |tm| %>
+            <tr>
+              <td><%= tm.created_at.strftime('%D') %></td>
+              <td><%= tm.protein %></td>
+              <td><%= tm.carbs %></td>
+              <td><%= tm.fat %></td>
+            </tr>
+          <% end %>
+
+      </table>
+    </div>
+  </div>
+</div>

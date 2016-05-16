@@ -160,3 +160,29 @@ h1,h2,h3,h4 {
   color: $primary-color;
   margin-bottom: 10px;
 }
+
+.data-table {
+  background-color: rgba($dark-gray,.7);
+  border-radius: 5px;
+  margin: 25px 0;
+
+  td {
+    border: 1px solid $white;
+    text-align: center;
+  }
+  td:first-child {
+    border-left: none;
+  }
+  td:last-child {
+    border-right: none;
+  }
+  tr:last-child {
+    td {
+      border-bottom: none;
+    }
+  }
+
+  tbody {
+  background-color: rgba($dark-gray,.0);
+  }
+}
