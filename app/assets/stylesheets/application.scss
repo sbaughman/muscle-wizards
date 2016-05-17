@@ -25,6 +25,20 @@ body {
   background-size: cover;
 }
 
+.chart {
+  border-radius: 5px;
+  background-color: rgba($dark-gray,.7);
+  padding-top: 10px;
+  margin-bottom: 25px;
+}
+
+.highcharts-container {
+  border-radius: 5px;
+  rect {
+    fill: rgba($dark-gray,.0);
+  }
+}
+
 /* flash messages */
 .alert-box {
   padding: 15px;
@@ -146,4 +160,32 @@ h1,h2,h3,h4 {
 #select_all {
   color: $primary-color;
   margin-bottom: 10px;
+}
+
+.data-table {
+  background-color: rgba($dark-gray,.7);
+  border-radius: 5px;
+  margin: 10px 0;
+  h3 {
+    margin-bottom: -5px;
+  }
+
+  td {
+    border: 1px solid $white;
+  }
+  td:first-child {
+    border-left: none;
+  }
+  td:last-child {
+    border-right: none;
+  }
+  tr:last-child {
+    td {
+      border-bottom: none;
+    }
+  }
+
+  tbody {
+  background-color: rgba($dark-gray,.0);
+  }
 }

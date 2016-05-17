@@ -1,11 +1,14 @@
-<%= line_chart [
-  {
-    name: "Cardio",
-    data: @cardios.map { |cardio| [cardio.created_at.strftime('%D'), cardio.duration] }
-  },
-  {
-    name: "Target Cardio",
-    data: @target_cardios.map { |cardio| [cardio.created_at.strftime('%D'), cardio.duration] }
-  }
-  ],
-  ytitle: "Duration (min)", min: @minmax[0], max: @minmax[1] %>
+<div class="chart">
+  <h3 class="text-center">Cardio</h3>
+  <%= line_chart [
+    {
+      name: "Cardio",
+      data: @cardios.map { |cardio| [cardio.created_at.strftime('%D'), cardio.duration] }
+    },
+    {
+      name: "Target Cardio",
+      data: @target_cardios.map { |cardio| [cardio.created_at.strftime('%D'), cardio.duration] }
+    }
+    ],
+    ytitle: "Duration (min)", min: @minmax[0], max: @minmax[1] %>
+</div>

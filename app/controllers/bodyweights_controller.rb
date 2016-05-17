@@ -6,7 +6,15 @@ class BodyweightsController < ApplicationController
 
 
   def index
-    @weights = @prep.bodyweights.order(created_at: :desc)
+    @weights = @prep.bodyweights.order(created_at: :desc) 
+    if @weights.length > 10
+      @over_ten = true
+      @chart_weights = @weights[-10..-1]
+    end
+    if params[:m]
+      @over_ten = false
+      @chart_weights = @prep.bodyweights.order(created_at: :desc)
+    end
   end
 
   def new

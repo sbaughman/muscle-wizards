@@ -1,18 +1,73 @@
 
-<%= link_to  "Add new macros", new_prep_macro_path(@prep), class: 'button' %>
-<%= link_to "Back to Prep Home", prep_path(@prep), class: "button" %>
+<div class="row">
+  <div class="small-12 columns">
+    <h2 class="text-center">Macro History</h2>
+  </div>
+</div>
 
 <div class="row">
   <div class="medium-6 columns">
-    <h3 class="text-center">Macros</h3>
     <%= render partial: 'macro_chart' %>
   </div>
   <div class="medium-6 columns">
-    <h3 class="text-center">Calories</h3>
     <%= render partial: 'calorie_chart' %>
   </div>
 </div>
 
-<ul>
-  <%= render @macros %>
-</ul>
+<div class="row">
+  <div class="small-6 columns">
+    <%= link_to  "Log new macros", new_prep_macro_path(@prep), class: 'expanded button' %>
+  </div>
+  <div class="small-6 columns">
+    <%= link_to "Back to Prep Home", prep_path(@prep), class: "expanded button" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <div class="data-table text-center">
+      <table id="target-macros-table">
+        <h3>Target Macro Log</h3>
+        <% if @over_ten %>
+          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
+        <% end %>
+        <tr>
+          <th>Date</th>
+          <th>Protein(g)</th>
+          <th>Carbs(g)</th>
+          <th>Fat(g)</th>
+        </tr>
+          <% @chart_target_macros.each do |tm| %>
+            <tr>
+              <td><%= tm.created_at.strftime('%D') %></td>
+              <td><%= tm.protein %></td>
+              <td><%= tm.carbs %></td>
+              <td><%= tm.fat %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+    <div class="data-table text-center">
+      <table id="macros-table">
+        <h3>Macro Log</h3>
+        <% if @over_ten %>
+          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+        <% end %>
+        <tr>
+          <th>Date</th>
+          <th>Protein(g)</th>
+          <th>Carbs(g)</th>
+          <th>Fat(g)</th>
+        </tr>
+          <% @chart_macros.each do |m| %>
+            <tr>
+              <td><%= m.created_at.strftime('%D') %></td>
+              <td><%= m.protein %></td>
+              <td><%= m.carbs %></td>
+              <td><%= m.fat %></td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>
