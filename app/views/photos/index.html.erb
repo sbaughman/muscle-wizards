@@ -1,14 +1,15 @@
 <div class="row">
-  <div class="medium-2 columns">
+  <div class="medium-3 columns">
     <h5>Filter By:</h5>
     <ul class="no-bullet">
       <% @tags.each do |tag| %>
         <li><%= link_to tag.name, pose_path(prep_id: @prep, tag: tag.name) %></li>
       <% end %>
     </ul>
-    <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
+    <%= link_to "Add Photo", new_prep_photo_path(@prep), class:"expanded button" %>
+    <%= link_to "Back to Prep", prep_path(@prep), class: "expanded button" %>
   </div>
-  <div class="medium-10 columns">
+  <div class="medium-9 columns">
     <% if params[:tag] %>
       <h3>Pose: <%= params[:tag] %></h3><small><%= link_to "Show All", prep_photos_path(@prep) %></small>
     <% else %>

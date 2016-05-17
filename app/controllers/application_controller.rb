@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :other_user
+  helper_method :other_user, :new_message_count
 
   def set_prep
     @prep = Prep.find(params[:prep_id])
@@ -35,6 +35,14 @@ class ApplicationController < ActionController::Base
       redirect_back(fallback_location: root_path)
     end
     true
+  end
+
+  def new_message_count
+    conversation = Conversation.between(@prep.user_id, @prep.coach_id).first
+    if conversation
+      messages = conversation.messages
+      new_messages = messages.where(user_id: other_user(current_user), read: false).count
+    end
   end
 
   protected
