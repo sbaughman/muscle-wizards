@@ -28,8 +28,8 @@
     <div class="data-table text-center">
       <table id="target-macros-table">
         <h3>Target Macro Log</h3>
-        <% if @over_ten %>
-          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
+        <% if @over_ten2 %>
+          <%= link_to "Last 10 Entries - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
         <% end %>
         <tr>
           <th>Date</th>
@@ -51,7 +51,7 @@
       <table id="macros-table">
         <h3>Macro Log</h3>
         <% if @over_ten %>
-          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+          <%= link_to "Last 10 Entries - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
         <% end %>
         <tr>
           <th>Date</th>
