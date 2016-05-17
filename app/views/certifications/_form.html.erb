@@ -1,6 +1,6 @@
 <%= simple_form_for [current_user, @certification] do |f| %>
   <%= f.input :name %>
   <%= f.label "Date" %>
-  <%= f.text_field :date_granted %>
+  <%= f.text_field :date_granted, placeholder: "eg. 2016-05-22" %>
   <%= f.button :submit %>
 <% end %>
