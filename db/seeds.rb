@@ -12,11 +12,32 @@ athlete = User.create!(email: "example@example.com", name: Faker::Name.name, gen
 # Creates a user that is a coach
 coach = User.create!(coach: true, email: "example2@example.com", name: Faker::Name.name, gender: "M", age: 35, bio: Faker::Hipster.sentence, height: 70, phone_number: 3175556666, password: "password", avatar: URI.parse("https://s-media-cache-ak0.pinimg.com/736x/0c/01/9f/0c019fcb9ad9494b1bc63b7011223daa.jpg"))
 
+# Creates some certifications for the coach
+coach.certifications.create!(name: "NASM Certified Trainer", date_granted: 3.years.ago)
+coach.certifications.create!(name: "USAPL Coaching Certification", date_granted: 2.years.ago)
+coach.certifications.create!(name: "ISSA Fitness Nutrition Certification", date_granted: 2.years.ago)
+
+# Creates a philosophy for the coach
+Philosophy.create!(words: Faker::Hipster.paragraphs(2).join("\n\n"), user_id: 2)
+
 # Creates a new prep
 prep = athlete.preps.create!(title: "2016 Summer Competition Season", coach_id: 2)
 
 # Creates a new contest
 prep.contests.create!(title: "WNBF Pro Bowl", date: (Time.now + 7257600))
+
+# Creates a conversation with messages between coach and athlete
+conversation = Conversation.create!(sender_id: 1, recipient_id: 2)
+counter = 2592000
+15.times do
+  message1 = conversation.messages.create!(user_id: 1, body: Faker::Hipster.sentence)
+  message2 = conversation.messages.create!(user_id: 2, body: Faker::Hipster.sentence)
+  message1.created_at -= counter
+  message2.created_at -= counter
+  message1.save!
+  message2.save!
+  counter -= 180000
+end
 
 # Creates 30 days of weigh-ins
 weight = 2050
