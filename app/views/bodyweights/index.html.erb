@@ -30,7 +30,9 @@
     <div class="data-table text-center">
       <table id="target-cardio-table">
         <h3>Bodyweight Log</h3>
-        <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+        <% if @over_ten %>
+          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+        <% end %>
         <tr>
           <th>Date</th>
           <th>Weight (lbs)</th>
