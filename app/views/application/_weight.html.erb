@@ -8,7 +8,7 @@
     <li><%= link_to "Weight history", prep_bodyweights_path(@prep) %></li>
   </ul>
 <% else %>
-  <h6>No weigh-ins recorded yet</h6>
+  <h5 class="no-data">No weigh-ins recorded yet</h5>
   <ul class="no-bullet">
     <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) if @prep.athlete == current_user %></li>
   </ul>

@@ -1,11 +1,12 @@
 <% if photos.any? %>
   <% photos.each do |photo| %>
-    <div class="medium-4 medium-center columns">
+    <div class="medium-4 medium-center columns status-panel">
       <%= image_tag(photo.image(:medium)) %>
     </div>
   <% end %>
 <% else %>
-  <div class="medium-12 columns text-center">
-    <h5>No Photos Added Yet</h5>
+  <div class="medium-12 columns text-center status-panel">
+    <h5 class="no-data">No Photos Added Yet</h5>
+    <%= link_to "+ Add one now!", new_prep_photo_path(@prep) %>
   </div>
 <% end %>
