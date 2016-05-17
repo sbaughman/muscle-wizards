@@ -3,7 +3,7 @@
   <%= simple_form_for [@prep, @contest] do |f| %>
     <%= f.input :title %>
     <%= f.label "Date" %>
-    <%= f.text_field :date %>
+    <%= f.text_field :date, placeholder: "eg. 2016-05-22" %>
     <%= f.button :submit %>
   <% end %>
 </div>

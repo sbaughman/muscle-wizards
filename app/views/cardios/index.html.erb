@@ -25,8 +25,8 @@
     <div class="data-table text-center">
       <table id="target-cardio-table">
         <h3>Target Cardio Log</h3>
-        <% if @over_ten %>
-          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
+        <% if @over_ten2 %>
+          <%= link_to "Last 10 Entries - Click to See All Data", check_macro_params || "?tm=all" unless params[:tm]%>
         <% end %>
         <tr>
           <th>Date</th>
@@ -53,7 +53,7 @@
       <table id="cardio-table">
         <h3>Cardio Log</h3>
         <% if @over_ten %>
-          <%= link_to "Last 10 Days - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
+          <%= link_to "Last 10 Entries - Click to See All Data", check_macro_params || "?m=all" unless params[:m]%>
         <% end %>
         <tr>
           <th>Date</th>

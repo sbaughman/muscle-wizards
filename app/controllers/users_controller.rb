@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @coached_preps = []
     if params[:id]
       user = User.find(params[:id])
-      if coach_or_coached_athlete?(user)
+      if coach_or_coached_athlete?(user) || user == current_user
         @user = user
         @coached_preps = Prep.where('coach_id = ? AND user_id != ?', current_user.id, current_user.id).order(updated_at: :desc) if current_user == user
       else

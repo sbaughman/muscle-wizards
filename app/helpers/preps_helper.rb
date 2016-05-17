@@ -5,13 +5,8 @@ module PrepsHelper
     @new_resource_count > 0 ? "Resources (#{@new_resource_count})" : "Resources"
   end
 
-  def new_message_count
-    conversation = Conversation.between(@prep.user_id, @prep.coach_id).first
-    if conversation
-      messages = conversation.messages
-      new_messages = messages.where("user_id = ? AND read = ?", other_user(current_user), false).count
-      new_messages > 0 ? "(#{new_messages})" : ""
-    end
+  def new_message_count_print
+    new_message_count > 0 ? "(#{new_message_count})" : ""
   end
 
 end

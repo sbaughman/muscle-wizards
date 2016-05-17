@@ -8,14 +8,14 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages.order(created_at: :asc)
     if @messages.length > 10
       @over_ten = true
-      @messages = @messages[-10..-1]
+      @messages = @messages[-10..-1].reverse
     end
     if params[:m]
       @over_ten = false
-      @messages = @conversation.messages.order(created_at: :asc)
+      @messages = @conversation.messages.order(created_at: :desc)
     end
-    if @messages.last && @messages.last.user_id != current_user.id
-      others_messages = @conversation.messages.where("user_id = ?", other_user(current_user))
+    if @messages.last && new_message_count > 0
+      others_messages = @conversation.messages.where(user_id: other_user(current_user))
       others_messages.update_all(read: true)
     end
     @message = @conversation.messages.new

@@ -1,8 +1,14 @@
 <div class="row">
-  <div class="small-12 columns">
-    <% if @over_ten %>
-       <%= link_to 'Show Previous', '?m=all' %>
-    <% end %>
+
+  <div class="small-12 medium-8 medium-offset-2 columns">
+    <div class="message-form">
+      <%= simple_form_for [@prep, @conversation, @message] do |f| %>
+        <%= f.input :body, label: false, placeholder: "Enter a new message here" %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.button :submit, value: "Send Message" %>
+        <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
+      <% end %>
+    </div>
 
     <div class="messages">
       <% @messages.each do |message| %>
@@ -22,11 +28,9 @@
       <% end %>
     </div>
 
-    <%= simple_form_for [@prep, @conversation, @message] do |f| %>
-      <%= f.input :body, label: false, placeholder: "Enter a new message here" %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.button :submit, value: "Send Message" %>
-      <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
+    <% if @over_ten %>
+       <%= link_to 'Showing last 10 messages - Show All', '?m=all' %>
     <% end %>
+
   </div>
 </div>
