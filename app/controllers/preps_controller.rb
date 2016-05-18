@@ -3,7 +3,7 @@ class PrepsController < ApplicationController
 
   def new
     @prep = Prep.new
-    @prep.contests.build
+    @contest = @prep.contests.new
   end
 
   def create
