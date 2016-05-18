@@ -2,7 +2,7 @@
   <% if @prep.coach.nil? %>
       <h4>Welcome</h4>
       <h5 class="no-data">Congratulations on starting your prep. The coach panel has options for finding a coach or choosing to coach yourself. Good luck!</h5>
-  <% elsif @prep.coach != current_user && @prep.athlete != @prep.coach %>
+  <% elsif @prep.athlete != @prep.coach %>
     <h4>Communication</h4>
     <ul class="no-bullet">
       <li><%= link_to new_resource_count, prep_resourceries_path(@prep) %></li>
@@ -15,5 +15,4 @@
   <% else %>
     <h1 class="no-data" id="mw-logo"><span class="green">M</span>W</h1>
   <% end %>
-
 </div>

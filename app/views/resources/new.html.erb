@@ -3,5 +3,6 @@
     <h2>New Resource</h2>
     <%= render partial: 'form' %>
     <%= link_to "Back to Resources", user_resources_path(current_user), class: "button" %>
+    <%= link_to "Back to Prep", prep_path(@prep) %>
   </div>
 </div>

@@ -6,5 +6,6 @@
       <%= f.input :message, placeholder: "Send your coach a message about this request (optional)" %>
       <%= f.button :submit %>
     <% end %>
+    <%= link_to "Back to Coach", coach_path(@prep, @coach) %>
   </div>
 </div>
