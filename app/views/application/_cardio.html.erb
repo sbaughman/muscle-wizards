@@ -1,17 +1,19 @@
-<h4>Cardio</h4>
-<% if cardio.any? %>
-  <ul class="no-bullet">
-    <li>Duration: <%= cardio.last.duration %> minutes</li>
-    <li>Activity: <%= cardio.last.activity %></li>
-    <li>Type: <%= cardio.last.style %></li>
-    <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
-    <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
-    <li><%= link_to "Cardio History", prep_cardios_path(@prep) %></li>
-  </ul>
-<% else %>
-  <h5 class="no-data">No cardio set yet</h5>
-  <ul class="no-bullet">
-    <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
-    <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
-  </ul>
-<% end %>
+<div class="backgrnd">
+  <h4>Cardio</h4>
+  <% if cardio.any? %>
+    <ul class="no-bullet">
+      <li>Duration: <%= cardio.last.duration %> minutes</li>
+      <li>Activity: <%= cardio.last.activity %></li>
+      <li>Type: <%= cardio.last.style %></li>
+      <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
+      <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
+      <li><%= link_to "Cardio History", prep_cardios_path(@prep) %></li>
+    </ul>
+  <% else %>
+    <h5 class="no-data">No cardio set yet</h5>
+    <ul class="no-bullet">
+      <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
+      <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
+    </ul>
+  <% end %>
+</div>
