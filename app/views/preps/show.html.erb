@@ -39,12 +39,14 @@
   <%= render partial: 'photos', locals: { photos: @photos } %>
 </div>
 <div class="row">
-  <% if @prep.athlete == current_user %>
-  <div class="medium-6 columns text-center">
-    <%= link_to "Upload new Progress Pic", new_prep_photo_path(@prep), class: "expanded button" %>
-  </div>
-  <% end %>
-  <div class="medium-6 medium-centered columns text-center">
-    <%= link_to "All Photos", prep_photos_path(@prep), class: "expanded button" %>
-  </div>
+  <div class="photo-buttons">
+    <% if @prep.athlete == current_user %>
+    <div class="medium-6 columns text-center">
+      <%= link_to "Upload new Progress Pic", new_prep_photo_path(@prep), class: "expanded button" %>
+    </div>
+    <% end %>
+    <div class="medium-6 medium-centered columns text-center">
+      <%= link_to "All Photos", prep_photos_path(@prep), class: "expanded button" %>
+    </div>
+  </div>  
 </div>

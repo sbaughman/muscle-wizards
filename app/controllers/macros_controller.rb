@@ -5,6 +5,7 @@ class MacrosController < ApplicationController
 
   def index
     @macros = @prep.macros.order(created_at: :asc)
+    @chart_macros = @macros.reverse
     if @macros.length > 10
       @over_ten = true
       @chart_macros = @macros[-10..-1].reverse
@@ -14,6 +15,7 @@ class MacrosController < ApplicationController
       @chart_macros = @macros.reverse
     end
     @target_macros = @prep.target_macros.order(created_at: :asc)
+    @chart_target_macros = @target_macros.reverse
     if @target_macros.length > 10
       @over_ten2 = true
       @chart_target_macros = @target_macros[-10..-1].reverse
