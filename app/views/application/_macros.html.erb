@@ -18,6 +18,7 @@
     <ul class="no-bullet">
       <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
       <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
+      <li><%= link_to "Macro history", prep_macros_path(@prep) if @prep.macros.any? %></li>
     </ul>
   <% end %>
 </div>

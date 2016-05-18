@@ -2,13 +2,14 @@
   <% if @prep.coach_id.nil? && @prep.invitation.nil? %>
     <h4>Coach</h4>
     <ul class="no-bullet no-data">
+      <h5>Get started here!</h5>
       <li><%= link_to "Find a Coach", coaches_path(prep_id: @prep.id) %></li>
       <li><%= link_to "Coach Myself", selfie_path(prep_id: @prep.id) %></li>
     </ul>
   <% elsif @prep.coach_id.nil? && @prep.invitation %>
     <h4>Coach</h4>
     <ul class="no-bullet no-data">
-      <li>You have a pending coach request.</li>
+      <li><h5>You have a pending coach request.</h5></li>
       <li><%= link_to "Delete Coach Request", deny_invite_path(prep_id: @prep.id, id: @prep.invitation.user_id), method: :delete %></li>
     </ul>
   <% elsif @prep.coach_id != @prep.athlete.id %>

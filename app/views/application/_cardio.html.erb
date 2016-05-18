@@ -14,6 +14,7 @@
     <ul class="no-bullet">
       <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
       <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
+      <li><%= link_to "Cardio History", prep_cardios_path(@prep) if @prep.cardios.any? %></li>
     </ul>
   <% end %>
 </div>
