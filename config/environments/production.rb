@@ -67,7 +67,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "muscle_wizards_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  host = 'https://dashboard.heroku.com/apps/shrouded-fortress-83012'
+  host = 'https://shrouded-fortress-83012.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
