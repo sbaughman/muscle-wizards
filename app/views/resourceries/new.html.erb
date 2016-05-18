@@ -4,7 +4,7 @@
     <h4>Share with...</h4>
     <button type="button" id="select_all">Select All</button>
     <%= render partial: 'form', locals: { resource: @resource } %>
-    <%= link_to "Back to Resources", user_resources_path(current_user), class: "button" %>
+    <%= link_to "Back to Resources", user_resources_path(current_user) %>
   </div>
 </div>
 

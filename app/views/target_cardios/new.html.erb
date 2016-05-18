@@ -2,10 +2,11 @@
   <div class="medium-8 medium-centered column">
     <h2>New Target Cardio:</h2>
     <%= simple_form_for [@prep, @target_cardio] do |f| %>
-      <%= f.input :duration, input_html: { min: '0' } %>
-      <%= f.input :activity %>
-      <%= f.input :style, placeholder: 'eg. HIIT or LISS' %>
-      <%= f.button :submit %>
+      <%= f.input :duration, label: "Duration (minutes)", input_html: { min: '1' } %>
+      <%= f.input :activity, placeholder: "ex. Bike, Elliptical" %>
+      <%= f.input :style, placeholder: 'ex. HIIT or LISS' %>
+      <%= f.button :submit, value: "Create Target Cardio" %>
     <% end %>
+    <%= link_to "Back to Prep", prep_path(@prep) %>
   </div>
 </div>
