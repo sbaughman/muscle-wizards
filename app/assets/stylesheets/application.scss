@@ -136,7 +136,39 @@ h1,h2,h3,h4 {
 
 /* prep page */
 .status-panel {
+  height: 300px;
+}
+
+.prep-avatar {
+  max-height: 180px;
+}
+
+#mw-logo {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 100px;
+}
+
+.no-data {
+  margin-top: 60px;
+}
+
+.backgrnd {
   min-height: 300px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba($dark-gray,.2);
+  transition: background-color .2s ease-in-out;
+}
+.backgrnd:hover {
+  background-color: rgba($dark-gray,.5);
+}
+
+.photo-buttons {
+  margin-top: 30px;
+}
+
+.photo {
+  max-height: 250px;
 }
 
 /* resources page */

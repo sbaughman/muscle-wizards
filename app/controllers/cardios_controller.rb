@@ -5,6 +5,7 @@ class CardiosController < ApplicationController
 
     def index
       @cardios = @prep.cardios.order(created_at: :asc)
+      @chart_cardios = @cardios.reverse
       if @cardios.length > 10
         @over_ten = true
         @chart_cardios = @cardios[-10..-1].reverse
@@ -13,7 +14,8 @@ class CardiosController < ApplicationController
         @over_ten = false
         @chart_cardios = @cardios.reverse
       end
-    @target_cardios = @prep.target_cardios.order(created_at: :asc)
+      @target_cardios = @prep.target_cardios.order(created_at: :asc)
+      @chart_target_cardios = @target_cardios.reverse
       if @target_cardios.length > 10
         @over_ten2 = true
         @chart_target_cardios = @target_cardios[-10..-1].reverse

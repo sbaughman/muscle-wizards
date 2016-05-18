@@ -1,21 +1,23 @@
-<h4>Macros</h4>
-<% if macros.any? %>
-  <ul class="no-bullet">
-    <li><%= macros.last.protein %>g Protein</li>
-    <li><%= macros.last.carbs %>g Carbs</li>
-    <li><%= macros.last.fat %>g Fat</li>
-    <% if macros.last.fiber %>
-      <li><%= macros.last.fiber %>g Fiber</li>
-    <% end %>
-    <li><%= macros.last.calories %> Calories</li>
-    <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
-    <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
-    <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>
-  </ul>
-<% else %>
-  <h6>No target macros set yet</h6>
-  <ul class="no-bullet">
-    <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
-    <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
-  </ul>
-<% end %>
+<div class="backgrnd">
+  <h4>Macros</h4>
+  <% if macros.any? %>
+    <ul class="no-bullet">
+      <li><%= macros.last.protein %>g Protein</li>
+      <li><%= macros.last.carbs %>g Carbs</li>
+      <li><%= macros.last.fat %>g Fat</li>
+      <% if macros.last.fiber %>
+        <li><%= macros.last.fiber %>g Fiber</li>
+      <% end %>
+      <li><%= macros.last.calories %> Calories</li>
+      <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
+      <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
+      <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>
+    </ul>
+  <% else %>
+    <h5 class="no-data">No target macros set yet</h5>
+    <ul class="no-bullet">
+      <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
+      <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
+    </ul>
+  <% end %>
+</div>

@@ -7,6 +7,7 @@ class BodyweightsController < ApplicationController
 
   def index
     @weights = @prep.bodyweights.order(created_at: :asc)
+    @chart_weights = @weights.reverse
     if @weights.length > 10
       @over_ten = true
       @chart_weights = @weights[-10..-1].reverse
@@ -26,7 +27,7 @@ class BodyweightsController < ApplicationController
     @weight.prep = @prep
     if @weight.save!
       flash[:success] = "Weigh-in successful"
-      redirect_to prep_bodyweights_path(@prep)
+      redirect_to prep_path(@prep)
     else
       render :new
     end
