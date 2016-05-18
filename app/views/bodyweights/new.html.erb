@@ -1,7 +1,7 @@
 <div class="row">
   <h2>Log New Weight</h2>
   <%= simple_form_for [@prep, @weight] do |f| %>
-    <%= f.input :weight %>
+    <%= f.input :weight, input_html: { max: '500' } %>
     <%= f.button :submit %>
   <% end %>
 </div>

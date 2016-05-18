@@ -2,10 +2,10 @@
   <div class="medium-8 medium-center column">
     <h2>Enter your macros:</h2>
     <%= simple_form_for [@prep, @macro] do |f| %>
-      <%= f.input :protein, input_html: { min: '0' } %>
-      <%= f.input :carbs, input_html: { min: '0' } %>
-      <%= f.input :fat, input_html: { min: '0' } %>
-      <%= f.input :fiber, input_html: { min: '0' }, placeholder: 'optional' %>
+      <%= f.input :protein, input_html: { min: '0', max: '500' } %>
+      <%= f.input :carbs, input_html: { min: '0', max: '999' } %>
+      <%= f.input :fat, input_html: { min: '0', max: '500' } %>
+      <%= f.input :fiber, input_html: { min: '0', max: '500' }, placeholder: 'optional' %>
       <%= f.button :submit %>
     <% end %>
   </div>
