@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="medium-8 medium-center column">
+  <div class="medium-8 medium-centered column">
     <h2>New Target Macros:</h2>
     <%= simple_form_for [@prep, @target_macro] do |f| %>
-      <%= f.input :protein, input_html: { min: '0' } %>
-      <%= f.input :carbs, input_html: { min: '0' } %>
-      <%= f.input :fat, input_html: { min: '0' } %>
-      <%= f.input :fiber, input_html: { min: '0' }, placeholder: 'optional' %>
-      <%= f.button :submit %>
+      <%= f.input :protein, label: "Protein (g)", input_html: { min: '0' } %>
+      <%= f.input :carbs, label: "Carbs (g)", input_html: { min: '0' } %>
+      <%= f.input :fat, label: "Fat (g)", input_html: { min: '0' } %>
+      <%= f.input :fiber, label: "Fiber (g)",input_html: { min: '0' }, placeholder: 'optional' %>
+      <%= f.button :submit, value: "Create Target Macro" %>
     <% end %>
   </div>
 </div>

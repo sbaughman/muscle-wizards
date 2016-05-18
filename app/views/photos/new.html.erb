@@ -1,8 +1,10 @@
 <div class="row">
-  <h2>Upload new Progress Pic:</h2>
-  <%= simple_form_for [@prep, @photo] do |f| %>
-    <%= f.input :image, as: :file %>
-    <%= f.input :tag, collection: @tags, label: 'Select Pose (optional)' %>
-    <%= f.button :submit %>
-  <% end %>
+  <div class="medium-8 medium-centered column">
+    <h2>Upload new Progress Pic:</h2>
+    <%= simple_form_for [@prep, @photo] do |f| %>
+      <%= f.input :image, as: :file %>
+      <%= f.input :tag, collection: @tags, label: 'Select Pose (optional)' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 </div>

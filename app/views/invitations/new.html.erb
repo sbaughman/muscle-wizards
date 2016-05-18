@@ -1,6 +1,10 @@
-<h2>Invite <%= @coach.name %> to coach this Prep</h2>
-<%= image_tag(@coach.avatar(:medium)) %>
-<%= simple_form_for @invitation, :url => coach_request_path(prep_id: @prep.id, id: @coach.id) do |f| %>
-  <%= f.input :message, placeholder: "Send your coach a message about this request (optional)" %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <div class="medium-8 medium-centered column">
+    <h2>Invite <%= @coach.name %> to coach this Prep</h2>
+    <%= image_tag(@coach.avatar(:medium)) %>
+    <%= simple_form_for @invitation, :url => coach_request_path(prep_id: @prep.id, id: @coach.id) do |f| %>
+      <%= f.input :message, placeholder: "Send your coach a message about this request (optional)" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
