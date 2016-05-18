@@ -7,7 +7,7 @@
     </ul>
   <% elsif @prep.coach_id.nil? && @prep.invitation %>
     <h4>Coach</h4>
-    <ul class="no-bullet">
+    <ul class="no-bullet no-data">
       <li>You have a pending coach request.</li>
       <li><%= link_to "Delete Coach Request", deny_invite_path(prep_id: @prep.id, id: @prep.invitation.user_id), method: :delete %></li>
     </ul>
