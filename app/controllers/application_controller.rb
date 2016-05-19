@@ -24,9 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def prep_includes_user?(user)
-    preps = Prep.where("coach_id = ?", current_user.id)
-    coached_athletes = preps.map { |prep| prep.athlete }
-    coached_athletes.include?(user)
+    current_user.coached_preps.where(athlete: user).any?
   end
 
   def user_owns_prep

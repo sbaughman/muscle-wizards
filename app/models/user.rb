@@ -20,6 +20,14 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
+  def athleted_preps
+    Prep.where(athlete: self)
+  end
+
+  def coached_preps
+    Prep.where(coach: self)
+  end
+
   private
 
   def email_is_valid_format

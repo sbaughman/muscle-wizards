@@ -7,8 +7,7 @@ class PrepsController < ApplicationController
   end
 
   def create
-    @prep = Prep.new(prep_params)
-    @prep.athlete = current_user
+    @prep = current_user.preps.new(prep_params)
     if @prep.save
       flash[:success] = "New Contest Prep started. Good luck!"
       redirect_to @prep
