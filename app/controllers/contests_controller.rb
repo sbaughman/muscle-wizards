@@ -22,7 +22,7 @@ class ContestsController < ApplicationController
   end
 
   def contest_params
-    params.require(:contest).permit(:title, :date)
+    params.require(:contest).permit(:title, :date, :url)
   end
 
 end

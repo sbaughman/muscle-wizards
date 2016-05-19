@@ -1,6 +1,6 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h2 class="text-center"><%= time_til_contest %> from <%= @prep.contests.first.title %></h2>
+    <h2 class="text-center"><%= render partial: 'headline', locals: { contest: @prep.contests.first } %></h2>
   </div>
 </div>
 <div class="row">
@@ -48,5 +48,5 @@
     <div class="medium-6 medium-centered columns text-center">
       <%= link_to "All Photos", prep_photos_path(@prep), class: "expanded button" %>
     </div>
-  </div>  
+  </div>
 </div>

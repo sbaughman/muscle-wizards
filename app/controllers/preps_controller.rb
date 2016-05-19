@@ -34,7 +34,7 @@ class PrepsController < ApplicationController
   private
 
   def prep_params
-    params.require(:prep).permit(:title, contests_attributes: [:title, :date])
+    params.require(:prep).permit(:title, contests_attributes: [:title, :date, :url])
   end
 
 end
