@@ -13,12 +13,11 @@
     <div class="messages">
       <% @messages.each do |message| %>
         <% if message.body %>
-          <% user = User.find(message.user_id) %>
           <div class="message">
-            <% if user == current_user%>
-              <div class="header"><strong class="green"><%= user.name %></strong> <%= message.message_time %></div>
+            <% if message.user == current_user%>
+              <div class="header"><strong class="green"><%= message.user.name %></strong> <%= message.message_time %></div>
             <% else %>
-              <div class="header"><strong class="bluish"><%= user.name %></strong> <%= message.message_time %></div>
+              <div class="header"><strong class="bluish"><%= message.user.name %></strong> <%= message.message_time %></div>
             <% end %>
             <div class="message-body">
               <%= message.body %>
