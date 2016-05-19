@@ -53,4 +53,5 @@ $(function(){
   $('.highcharts-container').find('svg').attr('style', 'font-family: "Work Sans"');
   $('.highcharts-axis').find('text').attr('style', 'color:#ffffff;fill:#ffffff' );
   $('.highcharts-axis-labels').find('text').attr('style', 'color:#ffffff;fill:#ffffff');
+  $('.alert-box').delay(3000).fadeOut(1000);
 });

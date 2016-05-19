@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
     if @invitation.save
       flash[:success] = "Invitation sent!"
       InvitationMailer.invite(@coach, @prep).deliver_later
-      redirect_to prep_path(@prep)
+      redirect_to @prep
     else
       render :new
     end
@@ -32,7 +32,7 @@ class InvitationsController < ApplicationController
     @coach = User.find(@invitation.user_id)
     @invitation.destroy
     InvitationMailer.reject(@coach, @prep).deliver_later
-    redirect_to prep_path(@prep)
+    redirect_to @prep
   end
 
   def accept_invite

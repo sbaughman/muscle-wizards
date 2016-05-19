@@ -3,10 +3,15 @@
     <h2>New Prep</h2>
     <%= simple_form_for (@prep) do |f| %>
       <%= f.input :title %>
-      <%= f.simple_fields_for(:contests) do |contest_form| %>
+      <%= f.simple_fields_for :contests, @contest do |contest_form| %>
         <%= contest_form.input :title, label: "Contest Name" %>
         <%= contest_form.label "Date" %>
         <%= contest_form.text_field :date %>
+        <div class="">
+          <% if @prep.errors.messages[:"contests.date"] %>
+            <small class="error"><%= @prep.errors.messages[:"contests.date"][0] %></small>
+          <% end %>
+        </div>  
       <% end %>
       <%= f.button :submit %>
     <% end %>

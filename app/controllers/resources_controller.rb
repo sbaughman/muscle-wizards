@@ -20,8 +20,7 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(resource_params)
-    @resource.user = current_user
+    @resource = current_user.resources.new(resource_params)
     if @resource.save
       flash[:success] = "New resource saved!"
       redirect_to user_resources_path(current_user)
@@ -31,12 +30,12 @@ class ResourcesController < ApplicationController
   end
 
   def edit
-    @resource = Resource.find(params[:id])
+    @resource = current_user.resources.find(params[:id])
   end
 
 
   def update
-    @resource = Resource.find(params[:id])
+    @resource = current_user.resources.find(params[:id])
     if @resource.update_attributes(resource_params)
       flash[:success] = "Resource updated successfully"
       redirect_to user_resources_path(current_user)
@@ -46,7 +45,7 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    @resource = Resource.find(params[:id])
+    @resource = current_user.resources.find(params[:id])
     @resource.destroy
     redirect_to user_resources_path(current_user)
   end

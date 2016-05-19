@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="medium-8 medium-center column">
+  <div class="medium-8 medium-centered column">
     <h2>Enter your macros:</h2>
     <%= simple_form_for [@prep, @macro] do |f| %>
       <%= f.input :protein, label: "Protein (g)", input_html: { min: '0' } %>
@@ -8,6 +8,6 @@
       <%= f.input :fiber, label: "Fiber (g)",input_html: { min: '0' }, placeholder: 'optional' %>
       <%= f.button :submit %>
     <% end %>
-    <%= link_to "Back to Prep", prep_path(@prep) %>
+    <%= link_to "Back to Prep", @prep %>
   </div>
 </div>

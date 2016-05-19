@@ -15,8 +15,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    @photo.prep = @prep
+    @photo = @prep.photos.new(photo_params)
     if @photo.save
       create_tag unless params[:photo][:tag].blank?
       flash[:success] = "Photo created!"

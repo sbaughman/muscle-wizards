@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="small-12 columns">
-    <h2>Title: <%= @resource.title %></h2>
+  <div class="medium-8 medium-centered column">
+    <h2><%= @resource.title %></h2>
     <ul class="no-bullet">
       <li><%= simple_format(@resource.body) %><li>
-      <li><%= link_to "Link to Resource", @resource.url if @resource.url %></li>
+      <li><%= link_to "Link to Resource", @resource.url, target: "_blank" if @resource.url %></li>
       <li><%= link_to "Link to Attached File", @resource.upload.url, target: "_blank" if @resource.upload_file_name %></li>
     </ul>
     <% if @prep %>
       <%= link_to "Back to Resources", prep_resourceries_path(@prep), class: "button" %>
-      <%= link_to "Back to Prep", prep_path(@prep), class: "button" %>
+      <%= link_to "Back to Prep", @prep, class: "button" %>
     <% else %>
       <%= link_to "Back to Resources", user_resources_path(current_user), class: "button" %>
     <% end %>

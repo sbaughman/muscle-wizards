@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
     if @message.save
-      redirect_to prep_conversation_messages_path(prep_id: @prep.id, conversation_id: @conversation.id)
+      redirect_to prep_conversation_messages_path(@prep, @conversation)
     end
   end
 
