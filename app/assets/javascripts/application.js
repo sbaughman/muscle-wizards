@@ -54,4 +54,14 @@ $(function(){
   $('.highcharts-axis').find('text').attr('style', 'color:#ffffff;fill:#ffffff' );
   $('.highcharts-axis-labels').find('text').attr('style', 'color:#ffffff;fill:#ffffff');
   $('.alert-box').delay(3000).fadeOut(1000);
+  convert_to_local_time();
 });
+
+function convert_to_local_time() {
+  $('.message-time').each(function() {
+    var el = $(this);
+    var utc_time = el.html();
+    var local_time = new Date(utc_time);
+    el.html(local_time.toLocaleString());
+  });
+}
