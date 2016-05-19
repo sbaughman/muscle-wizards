@@ -23,8 +23,7 @@ class BodyweightsController < ApplicationController
   end
 
   def create
-    @weight = Bodyweight.new(weight_params)
-    @weight.prep = @prep
+    @weight = @prep.bodyweights.new(weight_params)
     if @weight.save
       flash[:success] = "Weigh-in successful"
       redirect_to prep_path(@prep)

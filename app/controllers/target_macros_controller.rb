@@ -12,8 +12,7 @@ class TargetMacrosController < ApplicationController
   end
 
   def create
-    @target_macro = TargetMacro.new(target_macro_params)
-    @target_macro.prep = @prep
+    @target_macro = @prep.target_macros.new(target_macro_params)
     if @target_macro.save
       flash[:success] = "Macros entered"
       redirect_to prep_path(@prep)

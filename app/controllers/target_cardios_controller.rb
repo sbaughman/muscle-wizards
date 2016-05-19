@@ -12,8 +12,7 @@ class TargetCardiosController < ApplicationController
   end
 
   def create
-    @target_cardio = TargetCardio.new(target_cardio_params)
-    @target_cardio.prep = @prep
+    @target_cardio = @prep.target_cardios.new(target_cardio_params)
     if @target_cardio.save
       flash[:success] = "Cardio added!"
       redirect_to prep_path(@target_cardio.prep)

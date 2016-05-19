@@ -6,8 +6,7 @@ class CertificationsController < ApplicationController
   end
 
   def create
-    @certification = Certification.new(certification_params)
-    @certification.user = current_user
+    @certification = current_user.certifications.new(certification_params)
     if @certification.save
       flash[:success] = "New certification saved!"
       redirect_to user_path(current_user)
