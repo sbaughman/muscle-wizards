@@ -18,4 +18,8 @@ class Prep < ApplicationRecord
     user == athlete ? coach : athlete
   end
 
+  def conversation
+    Conversation.between(athlete, coach).first
+  end
+
 end

@@ -30,11 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def new_message_count
-    conversation = Conversation.between(@prep.user_id, @prep.coach_id).first
-    if conversation
-      messages = conversation.messages
-      new_messages = messages.where(user_id: @prep.other_user(current_user), read: false).count
-    end
+    @prep.conversation.unread_message_count(current_user)
   end
 
   protected
