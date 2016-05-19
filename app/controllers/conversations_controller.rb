@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
-    redirect_to prep_conversation_messages_path(prep_id: @prep.id, conversation_id: @conversation.id)
+    redirect_to prep_conversation_messages_path(@prep, @conversation)
   end
 
   private

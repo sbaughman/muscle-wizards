@@ -7,7 +7,7 @@
       <% end %>
     </ul>
     <%= link_to "Add Photo", new_prep_photo_path(@prep), class:"expanded button" %>
-    <%= link_to "Back to Prep", prep_path(@prep), class: "expanded button" %>
+    <%= link_to "Back to Prep", @prep, class: "expanded button" %>
   </div>
   <div class="medium-9 columns">
     <% if params[:tag] %>

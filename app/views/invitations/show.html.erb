@@ -8,7 +8,7 @@
       <h4 class="green">Message from Athlete:</h4>
       <%= simple_format @invitation.message %>
     <% end %>
-    <%= link_to "Accept Invitation", accept_invite_path(prep_id: @prep.id, id: @coach.id), class: "button", method: :post %>
-    <%= link_to "Decline", deny_invite_path(prep_id: @prep.id, id: @coach.id), method: :delete, class: "button" %>
+    <%= link_to "Accept Invitation", accept_invite_path(@prep, @coach), class: "button", method: :post %>
+    <%= link_to "Decline", deny_invite_path(@prep, @coach), method: :delete, class: "button" %>
   </div>
 </div>

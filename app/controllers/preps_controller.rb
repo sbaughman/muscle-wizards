@@ -11,7 +11,7 @@ class PrepsController < ApplicationController
     @prep.athlete = current_user
     if @prep.save
       flash[:success] = "New Contest Prep started. Good luck!"
-      redirect_to prep_path(@prep)
+      redirect_to @prep
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PrepsController < ApplicationController
     @prep = Prep.find(params[:prep_id])
     @prep.coach_id = @prep.user_id if user_owns_prep
     @prep.save
-    redirect_to prep_path(@prep)
+    redirect_to @prep
   end
 
   private

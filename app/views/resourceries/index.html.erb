@@ -9,7 +9,7 @@
     <% end %>
     <div>
       <% if @prep %>
-        <%= link_to "Back to Prep", prep_path(@prep), class: "button", id: "back-user-butt" %>
+        <%= link_to "Back to Prep", @prep, class: "button", id: "back-user-butt" %>
       <% else %>
         <%= link_to "Back to User Profile", user_path(current_user), class: "button", id: "back-user-butt" %>
       <% end %>

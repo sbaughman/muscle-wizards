@@ -26,7 +26,7 @@ class BodyweightsController < ApplicationController
     @weight = @prep.bodyweights.new(weight_params)
     if @weight.save
       flash[:success] = "Weigh-in successful"
-      redirect_to prep_path(@prep)
+      redirect_to @prep
     else
       render :new
     end
