@@ -5,17 +5,17 @@ class MessagesController < ApplicationController
   before_action :user_owns_prep
 
   def index
-    @messages = @conversation.messages.order(created_at: :asc)
+    @messages = @conversation.messages.order(created_at: :desc)
     if @messages.length > 10
       @over_ten = true
-      @messages = @messages[-10..-1].reverse
+      @messages = @messages[0..9]
     end
     if params[:m]
       @over_ten = false
       @messages = @conversation.messages.order(created_at: :desc)
     end
     if @messages.last && new_message_count > 0
-      others_messages = @conversation.messages.where(user_id: other_user(current_user))
+      others_messages = @conversation.messages.where(user_id: @prep.other_user(current_user))
       others_messages.update_all(read: true)
     end
     @message = @conversation.messages.new
