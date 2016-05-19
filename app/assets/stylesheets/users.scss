@@ -1,3 +1,42 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.coached-prep {
+  padding: 0;
+  height: 110px;
+  transition: background, .2s ease-in-out;
+  a {
+    color: $white;
+    transition: color, .2s ease-in-out;
+  }
+  a:hover {
+    color: $primary-color;
+  }
+  ul {
+    padding-top: 15px;
+    display: inline-block;
+  }
+  img {
+    margin-top: 5px;
+    margin-right: -10px;
+  }
+}
+.coached-prep:hover {
+  background: rgba($white, 0.3);
+}
+#profile-pic {
+  width: 100%;
+}
+#back-user-butt {
+  margin-top: 1vw;
+}
+
+#add-cert {
+  margin-top: 15px;
+}
+
+#add-prep {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}

@@ -1,2 +1,4 @@
 <%= simple_format(@user.philosophy.words) %>
-<%= link_to "Edit", edit_user_philosophy_path(user_id: current_user.id, id: @user.philosophy), class: "underline" if @user == current_user %>
+<div class="edit-links">
+  <%= link_to "Edit", edit_user_philosophy_path(user_id: current_user.id, id: @user.philosophy), class: "underline" if @user == current_user %>
+</div>

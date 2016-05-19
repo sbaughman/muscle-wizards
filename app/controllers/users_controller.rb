@@ -12,14 +12,14 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       if coach_or_coached_athlete?(user) || user == current_user
         @user = user
-        @coached_preps = current_user.coached_preps.order(updated_at: :desc) if current_user == user
+        @coached_preps = current_user.coached_preps.order(updated_at: :desc).select { |prep| prep.athlete != prep.coach } if current_user == user
       else
         flash[:alert] = "You don't have permission to view that"
         redirect_back(fallback_location: root_path)
       end
     else
       @user = current_user
-      @coached_preps = current_user.coached_preps.order(updated_at: :desc)
+      @coached_preps = current_user.coached_preps.order(updated_at: :desc).select { |prep| prep.athlete != prep.coach }
     end
   end
 
