@@ -3,7 +3,7 @@
     <h2><%= @resource.title %></h2>
     <ul class="no-bullet">
       <li><%= simple_format(@resource.body) %><li>
-      <li><%= link_to "Link to Resource", @resource.url if @resource.url %></li>
+      <li><%= link_to "Link to Resource", @resource.url, target: "_blank" if @resource.url %></li>
       <li><%= link_to "Link to Attached File", @resource.upload.url, target: "_blank" if @resource.upload_file_name %></li>
     </ul>
     <% if @prep %>

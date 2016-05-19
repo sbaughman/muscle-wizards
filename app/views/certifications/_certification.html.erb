@@ -3,7 +3,6 @@
       <li><%= cert.name %><li>
       <li>Certified On: <%= cert.date_granted.strftime('%D') %></li>
     </ul>
-    <%= link_to "Edit", edit_user_certification_path(user_id: current_user.id, id: cert) if @user == current_user %>
-    <%= link_to "Delete", user_certification_path(user_id: current_user.id, id: cert), method: :delete if @user == current_user %>
-
+    <%= link_to "Edit", edit_user_certification_path(current_user, cert), class: "underline" if @user == current_user %>
+    <%= link_to "Delete", user_certification_path(user_id: current_user.id, id: cert), method: :delete, class: "underline" if @user == current_user %>
   <% end %>

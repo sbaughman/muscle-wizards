@@ -3,7 +3,7 @@
     <h2>About:</h2>
     <% if @user.certifications.any? %>
       <h3 class="green">Certifications:</h3>
-      <%= render partial: 'certifications/certification', locals: {certs: @user.certifications } %>
+      <%= render partial: 'certifications/certification', locals: { certs: @user.certifications } %>
     <% end %>
       <h6><%= link_to "+ Add a certification", new_user_certification_path(current_user) if @user == current_user %></h6>
     <% if @user.philosophy %>
