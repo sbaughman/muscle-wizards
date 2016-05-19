@@ -8,6 +8,7 @@
       <%= f.input :height, label: "Height (inches)", collection: 36..85, prompt: "Select your height" %>
       <%= f.input :phone_number, placeholder: '555-555-5555' %>
       <%= f.input :bio, placeholder: "Tell us about yourself" %>
+      <%= f.input :avatar, as: :file, label: "Avatar Photo (optional)" %>
       <%= f.button :submit %>
     <% end %>
     <%= link_to "Back to Profile", user_path(current_user) %>
