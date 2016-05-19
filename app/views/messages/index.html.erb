@@ -15,9 +15,9 @@
         <% if message.body %>
           <div class="message">
             <% if message.user == current_user%>
-              <div class="header"><strong class="green"><%= message.user.name %></strong> <%= message.message_time %></div>
+              <div class="header"><strong class="green"><%= message.user.name %></strong> <small class="message-time"><%= message.created_at %></small></div>
             <% else %>
-              <div class="header"><strong class="bluish"><%= message.user.name %></strong> <%= message.message_time %></div>
+              <div class="header"><strong class="bluish"><%= message.user.name %></strong> <small class="message-time"><%= message.created_at %></small></div>
             <% end %>
             <div class="message-body">
               <%= message.body %>
