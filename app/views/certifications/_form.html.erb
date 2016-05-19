@@ -2,5 +2,10 @@
   <%= f.input :name %>
   <%= f.label "Date" %>
   <%= f.text_field :date_granted, placeholder: "eg. 2016-05-22" %>
+  <div class="errors">
+    <% if @certification.errors.messages[:date_granted] %>
+      <small class="error"><%= @certification.errors.messages[:date_granted][0] %></small>
+    <% end %>
+  </div>
   <%= f.button :submit %>
 <% end %>
