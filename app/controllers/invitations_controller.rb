@@ -1,6 +1,7 @@
 class InvitationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_prep
-  before_action :user_owns_prep
+  before_action :user_owns_prep, only: [:new, :create]
 
   def new
     @invitation = Invitation.new

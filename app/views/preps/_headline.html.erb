@@ -1,6 +1,6 @@
 <%= time_til_contest %> from
-<% if contest.url %>
-  <%= link_to contest.title, contest.url, target: "_blank" %>
+<% if contest.url.blank? %>
+  <%= contest.title %>  
 <% else %>
-  <%= contest.title %>
+  <%= link_to contest.title, contest.url, target: "_blank" %>
 <% end %>
