@@ -2,9 +2,9 @@
   <h4>Weight</h4>
   <% if weights.any? %>
     <ul class="no-bullet">
-      <li>Current Weight: <%= weights.last.display_weight %></li>
-      <li>Start Weight: <%= weights.first.display_weight %></li>
-      <li><%= time_ago_in_words(weights.first.created_at) %> ago</li>
+      <li><h5>Current Weight: <%= weights.last.display_weight %></h5></li>
+      <li><h5>Start Weight: <%= weights.first.display_weight %></h5></li>
+      <li><h5><%= time_ago_in_words(weights.first.created_at) %> ago</h5></li>
       <li><%= link_to "Log new weight", new_prep_bodyweight_path(@prep) if @prep.athlete == current_user %></li>
       <li><%= link_to "Weight history", prep_bodyweights_path(@prep) %></li>
     </ul>

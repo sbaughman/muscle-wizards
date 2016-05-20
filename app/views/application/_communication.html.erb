@@ -4,14 +4,16 @@
       <h5 class="welcome">Congratulations on starting your prep. The coach panel has options for finding a coach or choosing to coach yourself. Good luck!</h5>
   <% elsif @prep.athlete != @prep.coach %>
     <h4>Communication</h4>
-    <ul class="no-bullet">
-      <li><%= link_to new_resource_count, prep_resourceries_path(@prep) %></li>
-      <% if current_user.id == @prep.user_id %>
-        <li><%= link_to "Message Coach #{new_message_count_print}", prep_conversations_path(@prep, sender_id: @prep.athlete.id, recipient_id: @prep.coach.id), method: :post %></li>
-      <% else %>
-        <li><%= link_to "Message Athlete #{new_message_count_print}", prep_conversations_path(@prep, sender_id: @prep.coach.id, recipient_id: @prep.athlete.id), method: :post %></li>
-      <% end %>
-    </ul>
+    <div class="communication-links">
+      <ul class="no-bullet">
+        <li><h5><%= link_to new_resource_count, prep_resourceries_path(@prep) %></h5></li>
+        <% if current_user.id == @prep.user_id %>
+          <li><h5><%= link_to "Message Coach #{new_message_count_print}", prep_conversations_path(@prep, sender_id: @prep.athlete.id, recipient_id: @prep.coach.id), method: :post %></h5></li>
+        <% else %>
+          <li><h5><%= link_to "Message Athlete #{new_message_count_print}", prep_conversations_path(@prep, sender_id: @prep.coach.id, recipient_id: @prep.athlete.id), method: :post %></h5></li>
+        <% end %>
+      </ul>
+    </div>  
   <% else %>
     <h1 class="no-data" id="mw-logo"><span class="green">M</span>W</h1>
   <% end %>

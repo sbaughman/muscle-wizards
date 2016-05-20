@@ -4,6 +4,8 @@
 
 .status-panel {
   height: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .prep-avatar {
@@ -30,15 +32,43 @@
   background-color: rgba($dark-gray,.5);
 }
 
+.communication-links {
+  margin-top: 55px;
+}
+
 .photo-buttons {
   margin-top: 30px;
 }
 
 .photo {
   max-height: 260px;
-  max-width: 260px;
+  max-width: 95%;
 }
 
 .welcome {
   margin-top: 40px;
+}
+
+@media screen and (max-width: 1000px) {
+  .status-panel {
+    h5 {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .status-panel {
+    h5 {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .status-panel {
+    h5 {
+      font-size: 1.25rem;
+    }
+  }
 }
