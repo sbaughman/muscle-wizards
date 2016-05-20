@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def new_message_count
-    @prep.conversation.unread_message_count(current_user)
+    @prep.conversation.unread_message_count(current_user) if @prep.conversation
   end
 
   protected
