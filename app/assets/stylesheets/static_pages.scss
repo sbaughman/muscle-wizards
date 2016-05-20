@@ -46,3 +46,33 @@
     margin-bottom: 15px;
   }
 }
+
+@media screen and (max-width: 639px) {
+  .title {
+    h1 {
+      font-size: 4em;
+    }
+    h3 {
+      font-size: 2em;
+    }
+  }
+  .sign-in {
+    h1 {
+      margin: 10px 0;
+    }
+  }
+  .coach {
+    border-right: none;
+  }
+  .about {
+    h2, h4 {
+      font-size: 2em;
+    }
+  }
+  #sign-up {
+    width: 49.9%;
+  }
+  #home {
+    width: 49.9%;
+  }
+}

@@ -72,3 +72,18 @@ h1,h2,h3,h4 {
 .footer {
   height: 60px;
 }
+
+@media screen and (max-width: 639px) {
+  h2 {
+    font-size: 2em;
+  }
+  #top-bar-left {
+    width: 50%;
+  }
+  #top-bar-right {
+    width: 50%;
+    ul {
+      float: right;
+    }
+  }
+}

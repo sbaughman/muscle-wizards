@@ -1,6 +1,6 @@
 <div class="top-bar">
   <div class="row">
-    <div class="top-bar-left">
+    <div class="top-bar-left" id="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <li class="menu-text">
           <%= link_to root_path, id: "logo" do %>
@@ -9,7 +9,7 @@
         </li>
       </ul>
     </div>
-    <div class="top-bar-right">
+    <div class="top-bar-right" id="top-bar-right">
       <ul class="menu">
         <% if current_user %>
           <li><%= link_to "Profile", user_path(:id => current_user) %></li>
