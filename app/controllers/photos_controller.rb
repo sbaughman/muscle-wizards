@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-    @photo.tagging.destroy
+    @photo.tagging.destroy if @photo.tagging
     if @photo.save
       create_tag unless params[:photo][:tag].blank?
       flash[:success] = "Photo updated!"

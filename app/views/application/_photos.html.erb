@@ -1,11 +1,15 @@
 <% if photos.any? %>
-  <% photos.each do |photo| %>
-    <div class="medium-4 medium-center columns status-panel">
-      <div class="text-center backgrnd">
-        <%= image_tag(photo.image(:medium), class: "photo") %>
+  <div class="image-container">
+    <% photos.each do |photo| %>
+      <div class="medium-4 medium-center columns status-panel">
+        <div class="text-center backgrnd">
+          <%= link_to photo.image(:original), title: "#{photo.created_at.strftime('%D')} - #{photo.tag.name if photo.tag} - #{time_til_contest(photo)} out from #{nearest_contest.title} #{link_to "Edit", edit_prep_photo_path(@prep, photo)}" do %>
+            <%= image_tag(photo.image(:medium), class: "photo") %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% else %>
   <div class="medium-12 columns text-center status-panel">
     <div class="backgrnd">
