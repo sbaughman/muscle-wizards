@@ -1,5 +1,5 @@
 class Contest < ApplicationRecord
-  belongs_to :prep
+  belongs_to :prep, touch: true
   validates :title, :date, presence: true
   validate :is_in_the_future
   validates :url, format: { with: /\Ahttps?:\/\//, message: "must start with http:\\\\ or https:\\\\" }, allow_blank: true

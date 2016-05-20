@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  belongs_to :prep
+  belongs_to :prep, touch: true
   has_one :tag, through: :tagging
   has_one :tagging, dependent: :destroy
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100#" }
