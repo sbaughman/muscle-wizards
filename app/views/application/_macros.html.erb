@@ -2,13 +2,13 @@
   <h4>Macros</h4>
   <% if macros.any? %>
     <ul class="no-bullet">
-      <li><%= macros.last.protein %>g Protein</li>
-      <li><%= macros.last.carbs %>g Carbs</li>
-      <li><%= macros.last.fat %>g Fat</li>
+      <li><h5><%= macros.last.protein %>g Protein</h5></li>
+      <li><h5><%= macros.last.carbs %>g Carbs</h5></li>
+      <li><h5><%= macros.last.fat %>g Fat</h5></li>
       <% if macros.last.fiber %>
-        <li><%= macros.last.fiber %>g Fiber</li>
+        <li><h5><%= macros.last.fiber %>g Fiber</h5></li>
       <% end %>
-      <li><%= macros.last.calories %> Calories</li>
+      <li><h5><%= macros.last.calories %> Calories</h5></li>
       <li><%= link_to "Log today's macros", new_prep_macro_path(@prep) if @prep.athlete == current_user %></li>
       <li><%= link_to "Set new target macros", new_prep_target_macro_path(@prep) if @prep.coach_id == current_user.id %></li>
       <li><%= link_to "Macro history", prep_macros_path(@prep) %></li>

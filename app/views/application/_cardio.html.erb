@@ -2,9 +2,9 @@
   <h4>Cardio</h4>
   <% if cardio.any? %>
     <ul class="no-bullet">
-      <li>Duration: <%= cardio.last.duration %> minutes</li>
-      <li>Activity: <%= cardio.last.activity %></li>
-      <li>Type: <%= cardio.last.style %></li>
+      <li><h5>Duration: <%= cardio.last.duration %> minutes</h5></li>
+      <li><h5>Activity: <%= cardio.last.activity %></h5></li>
+      <li><h5>Type: <%= cardio.last.style %></h5></li>
       <li><%= link_to "Log today's cardio", new_prep_cardio_path(@prep) if @prep.athlete == current_user %></li>
       <li><%= link_to "Set new cardio goal", new_prep_target_cardio_path(@prep) if @prep.coach_id == current_user.id %></li>
       <li><%= link_to "Cardio History", prep_cardios_path(@prep) %></li>
