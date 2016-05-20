@@ -76,3 +76,17 @@
     width: 49.9%;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .title {
+    h1 {
+      font-size: 2.5em;
+      font-weight: 200;
+    }
+    h3 {
+      font-size: 1.5em;
+      font-weight: 200;
+    }
+  }
+
+}

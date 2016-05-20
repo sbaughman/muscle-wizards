@@ -30,7 +30,7 @@ module ApplicationHelper
   def time_out(prep)
     contest = prep.contests.order(:date).first
     time = contest.date - Time.now
-    render_time(time) + " out from " + contest.title
+    render_time(time) + " out <span class='hide-small'>from " + contest.title + "</span>"
   end
 
   def prep_thumb(prep)
