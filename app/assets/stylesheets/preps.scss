@@ -6,6 +6,9 @@
   height: 300px;
   margin-top: 10px;
   margin-bottom: 10px;
+  h5 {
+    margin-bottom: .2rem;
+  }
 }
 
 .prep-avatar {
@@ -65,10 +68,21 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  #mw-logo {
+    font-size: 80px;
+    margin-top: 70px;
+  }
+}
+
 @media screen and (max-width: 639px) {
   .status-panel {
     h5 {
       font-size: 1.25rem;
     }
+  }
+  #mw-logo {
+    font-size: 100px;
+    margin-top: 60px;
   }
 }
